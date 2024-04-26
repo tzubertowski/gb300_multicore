@@ -10,6 +10,21 @@ Some cores build and work well, others build and have issues (no sound, slowness
 Multicore releases can be found here: https://github.com/madcock/sf2000_multicore_cores/releases
 
 ## Setup (before building)
+### Via docker
+As I'm using Windows as my main machine, I have added a simple docker-compose file that spins up a tiny ubuntu server
+
+Prereqs:
+- docker
+- docker-compose
+
+Simply run
+> docker-compose up -d
+
+To ssh into the container
+> docker exec -it compiler-server /bin/bash
+> cd app
+
+### On the linux machine
 (This is the top level project, forked from: https://gitlab.com/kobily/sf2000_multicore)
 - choose a directory to contain all this
 - decide if you want EVERYTHING (there are a lot of cores!)
