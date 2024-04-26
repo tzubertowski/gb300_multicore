@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  compiler-server:
+    image: ubuntu:20.04
+    container_name: compiler-server
+    command: tail -f /dev/null
+    volumes:
+    - ./:/app
