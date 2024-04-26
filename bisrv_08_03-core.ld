@@ -40,7 +40,6 @@ osddrv_scale	= 0x80228b58;
 
 dev_get_by_id	= 0x80228e30;
 
-/* ?? */
 st7789v_caset_raset	= 0x8025041c;
 st7789v_ramwr	= 0x802504c0;
 
@@ -60,7 +59,7 @@ run_gba			= 0x8030e4bc;
 
 /* .data */
 RAMSIZE	= 0x806f5e84;
-/* _ or the other? */
+
 g_errno	= 0x806f6470;
 
 g_snd_task_flags	= 0x806f7634;
@@ -73,15 +72,12 @@ gfn_state_save	= 0x806f9008;
 gfn_retro_get_region	= 0x806f8fe4;
 gfn_get_system_av_info	= 0x806f8ff4;
 gfn_retro_load_game		= 0x806f9014;
-/* not present in the mapping, defaulting to sf2k */
 gfn_retro_unload_game	= 0x80c10830;
 gfn_retro_run	= 0x806f902c;
 gfn_frameskip	= 0x806f9028;
 
 g_run_file_size	= 0x806f8e9c;
-
-/* not present in the mapping, defaulting to sf2k */
-gp_buf_64m	= 0x80c10834;
+gp_buf_64m	= 0x806f8ed0;
 
 /* HiChip's hardware wired to LCD for UARTless debug.c */
 PINMUXL	= 0xb88004a0;

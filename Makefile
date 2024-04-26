@@ -169,7 +169,7 @@ bisrv.asd: loader.bin lcd_font.bin crc
 
 	# note: this patch must match $(LOADER_ADDR)
 	# jal run_gba -> jal 0x80001500
-	printf "\x40\x05\x00\x0C" | dd of=bisrv.asd bs=1 seek=$$((0x35a900)) conv=notrunc
+	printf "\x40\x05\x00\x0C" | dd of=bisrv.asd bs=1 seek=$$((0x30f0bc)) conv=notrunc
 
 	# endless loop in sys_watchdog_reboot -> j 0x80001508
 	printf "\x42\x05\x00\x08" | dd of=bisrv.asd bs=1 seek=$$((0x30d4)) conv=notrunc
