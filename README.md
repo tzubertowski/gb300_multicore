@@ -1,7 +1,10 @@
-# SF2000 Multicore
+# GB300 Multicore - port of multicore from SF2000
+This repo is a fork of original work done for SF2000 handheld. All credits go to those folks working on the multicore. 
+
+This fork especially would not be here if it was not for the amazing work of [Osaka @ RetroHandhelds discord](https://discord.com/channels/741895796315914271/1195581037003165796/1232748087714250894).
 
 ## About the platform
-More information about the SF2000 handheld gaming system can be found [here](https://vonmillhausen.github.io/sf2000/).
+More information about the GB300 handheld gaming system can be found [here](https://nummacway.github.io/gb300/).
 
 ## Status
 Some cores build and work well, others build and have issues (no sound, slowness, etc.), some build but do not currently work, and others do not build at all. For current information on the state of each core, please see the [spreadsheet](https://docs.google.com/spreadsheets/d/1BDPqLwRcY2cN7tObuyW7RzLw8oGyY9XGLS1D4jLgz2Q/edit?usp=sharing).
