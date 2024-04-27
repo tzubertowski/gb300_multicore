@@ -151,7 +151,7 @@ gfn_retro_run	= 0x806f902c;
 gfn_frameskip	= 0x806f9028;
 
 g_run_file_size	= 0x806f8e9c;
-gp_buf_64m	= 0x806f8ed0;
+gp_buf_64m	= 0x806f9020;
 
 /* HiChip's hardware wired to LCD for UARTless debug.c */
 PINMUXL	= 0xb88004a0;
