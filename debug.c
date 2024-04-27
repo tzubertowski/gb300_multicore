@@ -108,7 +108,7 @@ static void lcd_flush(unsigned short background_color)
 
 	// applicable ONLY to SF2000's screen FIXME
 	lcd_send_cmd(0x36); // MADCTL
-	lcd_send_data(0x60); // MX (X mirror) MV (rotation)
+	lcd_send_data(0x28); // MX (X mirror) MV (rotation)
 
 	lcd_send_cmd(0x2a); // CASET
 	lcd_send_data(0);
