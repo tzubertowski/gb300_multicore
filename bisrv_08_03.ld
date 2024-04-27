@@ -129,7 +129,7 @@ run_gba			= 0x8030e4bc;
 
 /* .rodata */
 
-_ctype_	= 80660d34;
+_ctype_	= 0x80660d34;
 
 /* .data */
 RAMSIZE	= 0x806f5e84;
