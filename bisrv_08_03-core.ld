@@ -59,7 +59,7 @@ run_gba			= 0x8030e4bc;
 
 /* .data */
 RAMSIZE	= 0x806f5e84;
-
+/* using errno */
 g_errno	= 0x806f6470;
 
 g_snd_task_flags	= 0x806f7634;
@@ -72,7 +72,7 @@ gfn_state_save	= 0x806f9008;
 gfn_retro_get_region	= 0x806f8fe4;
 gfn_get_system_av_info	= 0x806f8ff4;
 gfn_retro_load_game		= 0x806f9014;
-gfn_retro_unload_game	= 0x80c10830;
+gfn_retro_unload_game	= 0x806f901c;
 gfn_retro_run	= 0x806f902c;
 gfn_frameskip	= 0x806f9028;
 
