@@ -176,10 +176,6 @@ bisrv.asd: loader.bin lcd_font.bin crc
 	# endless loop in INT_General_Exception_Hdlr -> j 0x80001510
 	printf "\x44\x05\x00\x08" | dd of=bisrv.asd bs=1 seek=$$((0x495a0)) conv=notrunc
 
-	# patch the buffer size for handling the save state snapshot image
-	# \x0c (768k) would be enough up to cores displaying at 640x480x2
-	printf "\x0c" | dd of=bisrv.asd bs=1 seek=$$((0x34f8b8)) conv=notrunc
-
 	$(Q)./crc bisrv.asd
 
 lcd_font.bin: lcd_font.o
