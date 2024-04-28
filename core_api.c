@@ -55,9 +55,9 @@ static void frameskip_cb(BOOL flag);
 
 static void dummy_retro_run(void);
 
-static int *fw_fps_counter_enable = 0x80c0b5e0;
-static int *fw_fps_counter = 0x80c0b5dc;
-static char *fw_fps_counter_format = 0x8099bdf0;	// "%2d/%2d"
+static int *fw_fps_counter_enable = 0x806f7698;
+static int *fw_fps_counter = 0x806f7694;
+static char *fw_fps_counter_format = 0x806674a0;	// "%2d/%2d"
 static void fps_counter_enable(bool enable);
 
 
@@ -140,7 +140,7 @@ struct retro_core_t *__core_entry__(void) __attribute__((section(".init.core_ent
 
 struct retro_core_t *__core_entry__(void)
 {
-	clear_bss();
+		clear_bss();
 
 	extern void __sinit (struct _reent *);
 	extern void __libc_init_array (void);

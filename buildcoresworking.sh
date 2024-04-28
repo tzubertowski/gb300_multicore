@@ -101,7 +101,5 @@ make CONSOLE=testwav CORE=cores/libretro-samples/audio/audio_playback_wav && \
 #
 
 
-make updatelogo ALPHARELEASE=0.10
-
-
-true
+# make updatelogo ALPHARELEASE=0.10
+# #
