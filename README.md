@@ -1,7 +1,87 @@
 # GB300 Multicore - port of multicore from SF2000
-This repo is a fork of original work done for SF2000 handheld. All credits go to those folks working on the multicore. 
+This repo is a fork of original work done for [Multicore for SF2000](https://github.com/madcock/sf2000_multicore) handheld. All credits go to those folks working on the multicore. 
 
 This fork especially would not be here if it was not for the amazing work of [Osaka @ RetroHandhelds discord](https://discord.com/channels/741895796315914271/1195581037003165796/1232748087714250894).
+
+# How to install
+- Download the latest release of GB3000 Multicore from [release tab](https://github.com/tzubertowski/gb300_multicore/releases)
+- Backup your SD card
+- I highly recommend to install bootloader fix via [SF2000 Tadpole](https://github.com/EricGoldsteinNz/tadpole/releases) (it works just as well on GB300)
+- Unzip the release directly on GB300 SD card
+
+Multicore otherwise works the same as it does on SF2000, so you can reference the [source](https://github.com/madcock/sf2000_multicore).
+
+## Using cores
+- drop a rom, of a game you own, into roms/{EMU} folder of the SD card
+    - eg. I would drop pokemonFireRed.gba into roms/gba
+- run make-romlist.bat (or sh for linux)
+- put the card back into GB300, turn the device on
+- navigate to roms, select your game, enjoy the experience
+
+## Cores in this release
+- amstradb (cap32)
+- m2k (mame2000)
+- a26 (stella2014)
+- a5200 (a5200)
+- a78 (prosystem)
+- a800 (atari800lib)
+- lnx (handy)
+- wswan (beetle-swan)
+- chip8
+- col (gearcol)
+- fcf (FreeChaF)
+- retro8
+- vapor (vaporspec)
+- gong
+- outrun
+- wolf3d
+- prboom
+- flashback (REminiscence)
+- xrick
+- gw
+- cdg (pocketcdg)
+- int (FreeIntv)
+- msx (blueMSX)
+- gme
+- pce (beetle-pce)
+- ngpc (RACE)
+- gba (gpsp z modyfikacją dynarec)
+- gbb (gambatte)
+- gbgb (gearboy)
+- gb (tgbdual)
+- nes (fceumm)
+- nesq (QuickNES)
+- pokem (PokeMini)
+- snes02 (snes9x2002)
+- snes (snes9x2005)
+- sega (picodrive; megadrive)
+- gg (Gearsystem)
+- zx81 (81)
+- spec (fuse)
+- thom (theodore)
+- vec (vecx)
+- wsv (potator)
+- amstrad (crocods)
+- arduboy (arduous)
+- lnxb (beetle-lynx)
+- c64sc (vice)
+- c64 (vice)
+- vic20 (xvic)
+- fake08
+- lowres-nx
+- jnb
+- cavestory (port)
+- o2em
+- pcesgx (beetle-supergrafx)
+- pc8800 (quasi88)
+- pcfx (beetle-pcfx)
+- gbav (vba-next)
+- mgba
+- nest (nestopia)
+- vb (beetle-vb)
+- gpgx (Genesis-Plus-GX)
+- xmil
+- quake (port)
 
 ## About the platform
 More information about the GB300 handheld gaming system can be found [here](https://nummacway.github.io/gb300/).
