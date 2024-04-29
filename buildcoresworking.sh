@@ -90,8 +90,8 @@ make CONSOLE=xmil       CORE=cores/libretro-xmil/libretro && \
 make CONSOLE=quake      CORE=cores/tyrquake && \
 
 #test cores
-make CONSOLE=testadv CORE=cores/libretro-samples/tests/test_advanced && \
-make CONSOLE=testwav CORE=cores/libretro-samples/audio/audio_playback_wav && \
+# make CONSOLE=testadv CORE=cores/libretro-samples/tests/test_advanced && \
+# make CONSOLE=testwav CORE=cores/libretro-samples/audio/audio_playback_wav
 
 #deprecated working
 #
@@ -100,4 +100,4 @@ make CONSOLE=testwav CORE=cores/libretro-samples/audio/audio_playback_wav && \
 
 
 # make updatelogo ALPHARELEASE=0.10
-# # 
+true
