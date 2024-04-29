@@ -1,0 +1,38 @@
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'gb300*'
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-18.04
+    container:
+        image: prosty/gb300-multicore-builder:v1-release
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build
+        run: ./entrypoint.sh
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: gb300-multicore.tar.gz
+          path: gb300-multicore.tar.gz
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Automatic rebuild of the latest changes on the repo and cores
+          draft: false
+          prerelease: false

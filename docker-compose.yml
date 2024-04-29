@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   compiler-server:
-    image: ubuntu:20.04
+    build: .
     container_name: compiler-server
-    command: tail -f /dev/null
+    command: bash -c "./entrypoint.sh && tail -f /dev/null"
     volumes:
     - ./:/app
