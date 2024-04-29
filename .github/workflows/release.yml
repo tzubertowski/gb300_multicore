@@ -22,8 +22,6 @@ jobs:
         with:
           name: gb300-multicore.tar.gz
           path: gb300-multicore.tar.gz
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
