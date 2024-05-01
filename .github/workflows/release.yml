@@ -11,7 +11,7 @@ jobs:
     name: Create Release
     runs-on: ubuntu-20.04
     container:
-        image: prosty/gb300-multicore-builder:v1-release
+        image: prosty/gb300-multicore-builder:v1.1-release
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
