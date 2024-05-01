@@ -9,13 +9,15 @@ name: Create Release
 jobs:
   build:
     name: Create Release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     container:
         image: prosty/gb300-multicore-builder:v1-release
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build
+        with:
+          submodules: 'recursive'
+      - name: Build the release
         run: ./entrypoint.sh
       - name: Upload
         uses: actions/upload-artifact@v4

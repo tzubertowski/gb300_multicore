@@ -3,6 +3,6 @@ services:
   compiler-server:
     build: .
     container_name: compiler-server
-    command: bash -c "./entrypoint.sh && tail -f /dev/null"
+    command: tail -f /dev/null
     volumes:
     - ./:/app
