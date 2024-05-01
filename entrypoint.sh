@@ -6,4 +6,4 @@ rm -rf sdcard
 ./cleancoresworking.sh
 ./buildcoresworking.sh
 
-tar -czvf gb300-multicore.tar.gz sdcard
+tar -czvf /__w/gb300_multicore/gb300_multicore/gb300-multicore-canary.tar.gz /__w/gb300_multicore/gb300_multicore/sdcard
