@@ -1,7 +1,6 @@
 #!/bin/bash
 dos2unix buildcoresworking.sh
 dos2unix cleanandbuildworking.sh
-dos2unix buildgpspdynarec.sh
 
 # TODO: move into separate repo with assets, shouldn't be there rly
 cp -r assets/os/bisrv.asd bisrv_08_03.asd

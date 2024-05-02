@@ -45,7 +45,7 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - gme
 - pce (beetle-pce)
 - ngpc (RACE)
-- gba (gpsp z modyfikacją dynarec)
+- gba (running with dynarec)
 - gbb (gambatte)
 - gbgb (gearboy)
 - gb (tgbdual)
