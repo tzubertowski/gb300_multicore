@@ -1,0 +1,20 @@
+### [stella2014_color_depth]                     :[16bit]    :[16bit|24bit]
+### [stella2014_mix_frames]                      :[disabled] :[disabled|mix|ghost_65|ghost_75|ghost_85|ghost_95]
+### [stella2014_low_pass_filter]                 :[disabled] :[disabled|enabled]
+### [stella2014_low_pass_range]                  :[60]       :[5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95]
+### [stella2014_paddle_digital_sensitivity]      :[50]       :[10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100]
+### [stella2014_paddle_analog_sensitivity]       :[50]       :[10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100|105|110|115|120|125|130|135|140|145|150]
+### [stella2014_paddle_analog_response]          :[linear]   :[linear|quadratic]
+### [stella2014_paddle_analog_deadzone]          :[15]       :[0|3|6|9|12|15|18|21|24|27|30]
+### [stella2014_stelladaptor_analog_sensitivity] :[20]       :[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30]
+### [stella2014_stelladaptor_analog_center]      :[0]        :[-10|-9|-8|-7|-6|-5|-4|-3|-2|-1|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30]
+stella2014_color_depth = "16bit"
+stella2014_mix_frames = "disabled"
+stella2014_low_pass_filter = "disabled"
+stella2014_low_pass_range = "60"
+stella2014_paddle_digital_sensitivity = "50"
+stella2014_paddle_analog_sensitivity = "50"
+stella2014_paddle_analog_response = "linear"
+stella2014_paddle_analog_deadzone = "15"
+stella2014_stelladaptor_analog_sensitivity = "20"
+stella2014_stelladaptor_analog_center = "0"

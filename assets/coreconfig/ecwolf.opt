@@ -1,0 +1,54 @@
+### [ecwolf-memstore]                :[disabled]            :[disabled|enabled]
+### [ecwolf-preload-digisounds]      :[enabled]            :[disabled|enabled]
+### [ecwolf-resolution]              :[320x240]            :[240x160|320x200|320x240|400x240|420x240|480x270|640x360|640x400|640x480|800x500|960x540|960x600|1024x768|1280x720|1280x800|1600x1000|1920x1200|2240x1400|2560x1600]
+### [ecwolf-analog-deadzone]         :[15%]                :[0%|5%|10%|15%|20%|25%|30%]
+### [ecwolf-fps]                     :[35]                 :[7|7.8|8.8|10|14|17.5|25|30|35|50|60|70|72|75|90|100|119|120|140|144|240|244|300|360]
+### [ecwolf-palette]                 :[rgb565]             :[rgb565|xrgb8888]
+### [ecwolf-alwaysrun]               :[disabled]           :[disabled|enabled]
+### [ecwolf-viewsize]                :[20]                 :[4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21]
+### [ecwolf-am-overlay]              :[off]                :[off|on|both]
+### [ecwolf-am-rotate]               :[off]                :[off|on|overlay_only]
+### [ecwolf-am-drawtexturedwalls]    :[enabled]            :[disabled|enabled]
+### [ecwolf-am-drawtexturedfloors]   :[disabled]           :[disabled|enabled]
+### [ecwolf-am-texturedoverlay]      :[disabled]           :[disabled|enabled]
+### [ecwolf-am-showratios]           :[disabled]           :[disabled|enabled]
+### [ecwolf-am-pause]                :[enabled]            :[disabled|enabled]
+### [ecwolf-music-volume]            :[20]                 :[Off|1|2|3|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+### [ecwolf-digi-volume]             :[20]                 :[Off|1|2|3|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+### [ecwolf-adlib-volume]            :[20]                 :[Off|1|2|3|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+### [ecwolf-speaker-volume]          :[20]                 :[Off|1|2|3|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+### [ecwolf-analog-move-sensitivity] :[20]                 :[Off|1|2|3|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+### [ecwolf-analog-turn-sensitivity] :[20]                 :[Off|1|2|3|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+### [ecwolf-effects-priority]        :[digi-adlib-speaker] :[digi-adlib-speaker|digi-adlib|digi-speaker|digi|adlib|speaker]
+### [ecwolf-aspect]                  :[auto]               :[auto|16:9|4:3|16:10|17:10|5:4|21:9]
+### [ecwolf-invulnerability]         :[disabled]           :[disabled|enabled]
+### [ecwolf-dynamic-fps]             :[disabled]           :[disabled|enabled]
+### [ecwolf-panx-adjustment]         :[5]                  :[Off|1|2|3|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+### [ecwolf-pany-adjustment]         :[5]                  :[Off|1|2|3|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+ecwolf-memstore = "disabled"
+ecwolf-preload-digisounds = "enabled"
+ecwolf-resolution = "320x240"
+ecwolf-analog-deadzone = "15%"
+ecwolf-fps = "35"
+ecwolf-palette = "rgb565"
+ecwolf-alwaysrun = "disabled"
+ecwolf-viewsize = "20"
+ecwolf-am-overlay = "off"
+ecwolf-am-rotate = "off"
+ecwolf-am-drawtexturedwalls = "enabled"
+ecwolf-am-drawtexturedfloors = "disabled"
+ecwolf-am-texturedoverlay = "disabled"
+ecwolf-am-showratios = "disabled"
+ecwolf-am-pause = "enabled"
+ecwolf-music-volume = "20"
+ecwolf-digi-volume = "20"
+ecwolf-adlib-volume = "20"
+ecwolf-speaker-volume = "20"
+ecwolf-analog-move-sensitivity = "20"
+ecwolf-analog-turn-sensitivity = "20"
+ecwolf-effects-priority = "digi-adlib-speaker"
+ecwolf-aspect = "auto"
+ecwolf-invulnerability = "disabled"
+ecwolf-dynamic-fps = "disabled"
+ecwolf-panx-adjustment = "5"
+ecwolf-pany-adjustment = "5"

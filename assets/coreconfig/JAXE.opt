@@ -1,0 +1,22 @@
+### [jaxe_quirk_0_ram_init]                   :[enabled] :[disabled|enabled]
+### [jaxe_quirk_1_8xy6_8xye]                  :[enabled] :[disabled|enabled]
+### [jaxe_quirk_2_fx55_fx65]                  :[enabled] :[disabled|enabled]
+### [jaxe_quirk_3_bnnn]                       :[enabled] :[disabled|enabled]
+### [jaxe_quirk_4_big_sprite_lores]           :[enabled] :[disabled|enabled]
+### [jaxe_quirk_5_00fe_00ff]                  :[enabled] :[disabled|enabled]
+### [jaxe_quirk_6_sprite_wrapping]            :[enabled] :[disabled|enabled]
+### [jaxe_quirk_7_collision_enumeration]      :[enabled] :[disabled|enabled]
+### [jaxe_quirk_8_collision_bottom_of_screen] :[enabled] :[disabled|enabled]
+### [jaxe_cpu_requency]                       :[1000]    :[1000|1500|2000|3000|5000|10000|800|750|600|500|400|300]
+### [jaxe_theme]                              :[Default] :[Default|Black and white|Inverted black and white|Blood|Hacker|Space|Crazy Orange|Cyberpunk]
+jaxe_quirk_0_ram_init = "enabled"
+jaxe_quirk_1_8xy6_8xye = "enabled"
+jaxe_quirk_2_fx55_fx65 = "enabled"
+jaxe_quirk_3_bnnn = "enabled"
+jaxe_quirk_4_big_sprite_lores = "enabled"
+jaxe_quirk_5_00fe_00ff = "enabled"
+jaxe_quirk_6_sprite_wrapping = "enabled"
+jaxe_quirk_7_collision_enumeration = "enabled"
+jaxe_quirk_8_collision_bottom_of_screen = "enabled"
+jaxe_cpu_requency = "1000"
+jaxe_theme = "Default"

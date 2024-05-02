@@ -1,0 +1,54 @@
+### [sgx_palette]                        :[RGB]           :[RGB|Composite]
+### [sgx_aspect_ratio                    :[auto]          :[auto|6:5|4:3]
+### [sgx_hoverscan]                      :[352]           :[300|302|304|306|308|310|312|314|316|318|320|322|324|326|328|330|332|334|336|338|340|342|344|346|348|350|352]
+### [sgx_initial_scanline]               :[3]             :[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40]
+### [sgx_last_scanline]                  :[242]           :[208|209|210|211|212|213|214|215|216|217|218|219|220|221|222|223|224|225|226|227|228|229|230|231|232|233|234|235|236|237|238|239|240|241|242]
+### [sgx_mouse_sensitivity]              :[1.25]          :[0.25|0.50|0.75|1.00|1.25|1.50|1.75|2.00|2.25|2.50|2.75|3.00|3.25|3.50|3.75|4.00|4.25|4.50|4.75|5.00]
+### [sgx_up_down_allowed]                :[disabled]      :[disabled|enabled]
+### [sgx_disable_softreset]              :[disabled]      :[disabled|enabled]
+### [sgx_multitap]                       :[enabled]       :[disabled|enabled]
+### [sgx_default_joypad_type_p1]         :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [sgx_default_joypad_type_p2]         :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [sgx_default_joypad_type_p3]         :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [sgx_default_joypad_type_p4]         :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [sgx_default_joypad_type_p5]         :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [sgx_turbo_toggle]                   :[disabled]      :[disabled|switch|dedicated]
+### [sgx_turbo_toggle_hotkey]            :[disabled]      :[disabled|enabled]
+### [sgx_turbo_delay]                    :[3]             :[3|4|5|6|7|8|9|10|11|12|13|14|15|30|60]
+### [sgx_cdimagecache]                   :[disabled]      :[disabled|enabled]
+### [sgx_cdbios]                         :[System Card 3] :[Games Express|System Card 1|System Card 2|System Card 3]
+### [sgx_detect_gexpress]                :[enabled]       :[disabled|enabled]
+### [sgx_cdspeed]                        :[1]             :[1|2|4|8]
+### [sgx_adpcmvolume]                    :[100]           :[0|10|20|30|40|50|60|70|80|90|100|110|120|130|140|150|160|170|180|190|200]
+### [sgx_cddavolume]                     :[100]           :[0|10|20|30|40|50|60|70|80|90|100|110|120|130|140|150|160|170|180|190|200]
+### [sgx_cdpsgvolume]                    :[100]           :[0|10|20|30|40|50|60|70|80|90|100|110|120|130|140|150|160|170|180|190|200]
+### [sgx_forcesgx]                       :[disabled]      :[disabled|enabled]
+### [sgx_nospritelimit]                  :[disabled]      :[disabled|enabled]
+### [sgx_ocmultiplier]                   :[1]             :[1|2|3|4|5|6|7|8|9|10|20|30|40|50]
+sgx_palette = "RGB"
+sgx_aspect_ratio = "auto"
+sgx_hoverscan = "352"
+sgx_initial_scanline = "3"
+sgx_last_scanline = "242"
+sgx_mouse_sensitivity = "1.25"
+sgx_up_down_allowed = "disabled"
+sgx_disable_softreset = "disabled"
+sgx_multitap = "enabled"
+sgx_default_joypad_type_p1 = "2 Buttons"
+sgx_default_joypad_type_p2 = "2 Buttons"
+sgx_default_joypad_type_p3 = "2 Buttons"
+sgx_default_joypad_type_p4 = "2 Buttons"
+sgx_default_joypad_type_p5 = "2 Buttons"
+sgx_turbo_toggle = "disabled"
+sgx_turbo_toggle_hotkey = "disabled"
+sgx_turbo_delay = "3"
+sgx_cdimagecache = "disabled"
+sgx_cdbios = "System Card 3"
+sgx_detect_gexpress = "enabled"
+sgx_cdspeed = "1"
+sgx_adpcmvolume = "100"
+sgx_cddavolume = "100"
+sgx_cdpsgvolume = "100"
+sgx_forcesgx = "disabled"
+sgx_nospritelimit = "disabled"
+sgx_ocmultiplier = "1"

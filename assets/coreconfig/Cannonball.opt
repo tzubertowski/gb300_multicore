@@ -1,0 +1,58 @@
+### [cannonball_menu_enabled]           :[ON]         :[OFF|ON]
+### [cannonball_menu_road_scroll_speed] :[50]         :[5|10|15|20|25|30|40|50|60|70|80|90|100|150|200|300|400|500]
+### [cannonball_video_fps]              :[OFF]        :[Low (30)|Smooth (60)|Ultra Smooth (120)|Original (60/30)]
+### [cannonball_video_widescreen]       :[OFF]        :[OFF|ON]
+### [cannonball_video_hires]            :[OFF]        :[OFF|ON]   
+### [cannonball_sound_enable]           :[ON]         :[OFF|ON]
+### [cannonball_sound_advertise]        :[ON]         :[OFF|ON]
+### [cannonball_sound_preview]          :[ON]         :[OFF|ON]
+### [cannonball_fix_timer]              :[ON]         :[OFF|ON]
+### [cannonball_gear]                   :[Manual]     :[Manual|Manual Cabinet|Manual 2 Buttons|Automatic]
+### [cannonball_analog]                 :[ON]         :[OFF|ON]
+### [cannonball_steer_speed]            :[3]          :[1|2|3|4|5|6|7|8|9]
+### [cannonball_pedal_speed]            :[4]          :[1|2|3|4|5|6|7|8|9]
+### [cannonball_haptic_strength]        :[10]         :[0|1|2|3|4|5|6|7|8|9|10]
+### [cannonball_jap]                    :[OFF]        :[OFF|ON]
+### [cannonball_freeplay]               :[OFF]        :[OFF|ON]
+### [cannonball_force_ai]               :[OFF]        :[OFF|ON]
+### [cannonball_dip_time]               :[Easy (80s)] :[Easy (80s)|Normal (75s)|Hard (72s)|Very Hard (70s)|Infinite Time]
+### [cannonball_dip_traffic]            :[Normal]     :[Easy|Normal|Hard|Very Hard|No Traffic]
+### [cannonball_level_objects]          :[ON]         :[OFF|ON]
+### [cannonball_prototype]              :[OFF]        :[OFF|ON]
+### [cannonball_new_attract]            :[ON]         :[OFF|ON]
+### [cannonball_randomgen]              :[ON]         :[OFF|ON]
+### [cannonball_fix_bugs]               :[ON]         :[OFF|ON]
+### [cannonball_fix_timer]              :[OFF]        :[OFF|ON]
+### [cannonball_ttrial_laps]            :[3]          :[1|2|3|4|5]
+### [cannonball_ttrial_traffic]         :[3]          :[0|1|2|3|4|5|6|7|8]
+### [cannonball_cont_traffic]           :[3]          :[0|1|2|3|4|5|6|7|8]
+### [cannonball_layout_debug]           :[OFF]        :[OFF|ON]
+cannonball_menu_enabled = "ON"
+cannonball_menu_road_scroll_speed = "50"
+cannonball_video_fps = "Low (30)"
+cannonball_video_widescreen = "OFF"
+cannonball_video_hires = "OFF"
+cannonball_sound_enable = "ON"
+cannonball_sound_advertise = "ON"
+cannonball_sound_preview = "ON"
+cannonball_sound_fix_samples = "ON"
+cannonball_gear = "Manual"
+cannonball_analog = "OFF"
+cannonball_steer_speed = "3"
+cannonball_pedal_speed = "4"
+cannonball_haptic_strength = "10"
+cannonball_jap = "OFF"
+cannonball_freeplay = "OFF"
+cannonball_force_ai = "OFF"
+cannonball_dip_time = "Easy (80s)"
+cannonball_dip_traffic = "Normal"
+cannonball_level_objects = "ON"
+cannonball_prototype = "OFF"
+cannonball_new_attract = "ON"
+cannonball_randomgen = "ON"
+cannonball_fix_bugs = "ON"
+cannonball_fix_timer = "OFF"
+cannonball_ttrial_laps = "3"
+cannonball_ttrial_traffic = "3"
+cannonball_cont_traffic = "3"
+cannonball_layout_debug = "OFF"

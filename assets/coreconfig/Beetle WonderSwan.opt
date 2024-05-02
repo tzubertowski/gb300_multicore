@@ -1,0 +1,18 @@
+### [wswan_rotate_display]      :[manual]   :[manual|landscape|portrait]
+### [wswan_rotate_keymap]       :[auto]     :[auto|disabled|enabled]
+### [wswan_mono_palette]        :[default]  :[default|wonderswan|wondeswan_color|swancrystal|gb_dmg|gb_pocket|gb_light|blossom_pink|bubbles_blue|buttercup_green|digivice|game_com|gameking|game_master|golden_wild|greenscale|hokage_orange|labo_fawn|legendary_super_saiyan|microvision|million_live_gold|odyssey_gold|shiny_sky_blue|slime_blue|ti_83|travel_wood|virtual_boy]
+### [wswan_gfx_colors]          :[16bit]    :[16bit|24bit]
+### [wswan_frameskip]           :[auto]     :[disabled|auto|manual]
+### [wswan_frameskip_threshold] :[33]       :[15|18|21|24|27|30|33|36|39|42|45|48|51|54|57|60]
+### [wswan_60hz_mode]           :[enabled]  :[disabled|enabled]
+### [wswan_sound_sample_rate]   :[11025]    :[11025|22050|44100|48000]
+### [wswan_sound_low_pass]      :[disabled] :[disabled|enabled]
+wswan_rotate_display = "manual"
+wswan_rotate_keymap = "auto"
+wswan_mono_palette = "default"
+wswan_gfx_colors = "16bit"
+wswan_frameskip = "auto"
+wswan_frameskip_threshold = "33"
+wswan_60hz_mode = "enabled"
+wswan_sound_sample_rate = "11025"
+wswan_sound_low_pass = "disabled"

@@ -2,13 +2,13 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'gb300*'
+      - 'canary*'
 
-name: Create Release
+name: Create Canary Release
 
 jobs:
   build:
-    name: Create Release
+    name: Create Canary Release
     runs-on: ubuntu-20.04
     container:
         image: prosty/gb300-multicore-builder:v1.1-release
@@ -19,20 +19,14 @@ jobs:
           submodules: 'recursive'
       - name: Build the release
         run: ./.github/scripts/entrypoint.sh
-      - name: Upload
-        uses: actions/upload-artifact@v4
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: gb300-multicore-canary.tar.gz
-          path: /__w/gb300_multicore/gb300_multicore/gb300-multicore-canary.tar.gz
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: /__w/gb300_multicore/gb300_multicore/gb300-multicore-canary.tar.gz
+          asset_name: gb300-multicore-${{ github.ref }}.tar.gz
+          tag: ${{ github.ref }}
+          overwrite: true
           body: |
-            Automatic rebuild of the latest changes on the repo and cores
-          draft: false
-          prerelease: false
+              Canary (unstable) build of GB300 multicore. It contains latest, untested, changes to the emulation cores.
+              Please only use this release prior to backing up your SD card. Kindly report bugs @ our discord server. 

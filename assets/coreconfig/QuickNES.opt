@@ -1,0 +1,20 @@
+### [quicknes_aspect_ratio_par] :[PAR]      :[PAR|4:3]
+### [quicknes_audio_eq]         :[default]  :[default|famicom|tv|flat|crisp|tinny]
+### [quicknes_audio_nonlinear]  :[nonlinear]:[nonlinear|linear|stereo panning]
+### [quicknes_no_sprite_limit]  :[disabled] :[disabled|enabled]
+### [quicknes_palette]          :[default]  :[default|asqrealc|nintendo-vc|rgb|yuv-v3|unsaturated-final|sony-cxa2025as-us|pal|bmf-final2|bmf-final3|smooth-fbx|composite-direct-fbx|pvm-style-d93-fbx|ntsc-hardware-fbx|nes-classic-fbx-fs|nescap|wavebeam]
+### [quicknes_turbo_enable]     :[none]     :[none|player 1|player 2|both]
+### [quicknes_turbo_pulse_width]:[3]        :[1|2|3|5|10|15|30|60]
+### [quicknes_up_down_allowed]  :[disabled] :[disabled|enabled]
+### [quicknes_use_overscan_h]   :[enabled]  :[disabled|enabled]
+### [quicknes_use_overscan_v]   :[disabled] :[disabled|enabled]
+quicknes_aspect_ratio_par = "PAR"
+quicknes_audio_eq = "default"
+quicknes_audio_nonlinear = "nonlinear"
+quicknes_no_sprite_limit = "disabled"
+quicknes_palette = "default"
+quicknes_turbo_enable = "none"
+quicknes_turbo_pulse_width = "3"
+quicknes_up_down_allowed = "disabled"
+quicknes_use_overscan_h = "enabled"
+quicknes_use_overscan_v = "disabled"

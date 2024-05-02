@@ -1,0 +1,10 @@
+### [vb_3dmode]                  :[anaglyph]    :[anaglyph|cyberscope|side-by-side|vli|hli]
+### [vb_anaglyph_preset]         :[disabled]    :[disabled|red & blue|red & cyan|red & electric cyan|green & magenta|yellow & blue]
+### [vb_color_mode]              :[black & red] :[black & red|black & white|black & blue|black & cyan|black & electric cyan|black & green|black & magenta|black & yellow]
+### [vb_cpu_emulation]           :[fast]        :[accurate|fast]
+### [vb_right_analog_to_digital] :[disabled]    :[disabled|enabled|invert x|invert y|invert both]
+vb_3dmode = "anaglyph"
+vb_anaglyph_preset = "disabled"
+vb_color_mode = "black & red"
+vb_cpu_emulation = "fast"
+vb_right_analog_to_digital = "disabled"

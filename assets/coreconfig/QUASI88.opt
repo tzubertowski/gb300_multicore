@@ -1,0 +1,18 @@
+### [q88_basic_mode]        :[N88 V2]  :[N88 V2|N88 V1H|N88 V1S|N]
+### [q88_cpu_clock]         :[4]       :[4|8|16|32|64|1|2]
+### [q88_pcg-8100]          :[disabled]:[disabled|enabled]
+### [q88_rumble]            :[disabled]:[disabled|enabled]
+### [q88_save_to_disk_image]:[disabled]:[disabled|enabled]
+### [q88_screen_size]       :[half]    :[full|half]
+### [q88_sound_board]       :[OPNA]    :[OPN|OPNA]
+### [q88_sub_cpu_mode]      :[0]       :[0|1|2]
+### [q88_use_fdc_wait]      :[enabled] :[disabled|enabled]
+q88_basic_mode = "N88 V2"
+q88_cpu_clock = "4"
+q88_pcg-8100 = "disabled"
+q88_rumble = "disabled"
+q88_save_to_disk_image = "disabled"
+q88_screen_size = "half"
+q88_sound_board = "OPNA"
+q88_sub_cpu_mode = "0"
+q88_use_fdc_wait = "enabled"

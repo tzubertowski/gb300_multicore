@@ -1,0 +1,12 @@
+### [tyrquake_analog_deadzone] :[15]      :[0|5|10|15|20|25|30]
+### [tyrquake_colored_lighting]:[disabled]:[disabled|enabled]
+### [tyrquake_framerate]       :[auto]    :[auto|10|15|20|25|30|40|50|60|72|75]
+### [tyrquake_invert_y_axis]   :[disabled]:[disabled|enabled]
+### [tyrquake_resolution]      :[320x240] :[320x200|320x240|320x480|360x200|360x240|360x400|360x480|384x216|400x224|400x240|480x272|512x224|512x240|512x384|512x512|640x224|640x240|640x448|640x400|640x480]
+### [tyrquake_rumble]          :[disabled]:[disabled|enabled]
+tyrquake_analog_deadzone = "15"
+tyrquake_colored_lighting = "disabled"
+tyrquake_framerate = "auto"
+tyrquake_invert_y_axis = "disabled"
+tyrquake_resolution = "320x240"
+tyrquake_rumble = "disabled"

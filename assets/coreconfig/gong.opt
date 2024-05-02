@@ -1,0 +1,4 @@
+### [gong_player2]    :[CPU] :[Player 2|CPU|Human]
+### [gong_refresh]    :[60]  :[60|70|72|75|100|119|120|140|144]
+gong_player2 = "CPU"
+gong_refresh = "60"

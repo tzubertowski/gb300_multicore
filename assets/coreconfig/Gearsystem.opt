@@ -1,0 +1,16 @@
+### [gearsystem_up_down_allowed] :[Disabled]        :[Disabled|Enabled]
+### [gearsystem_system]          :[Auto]            :[Auto|Master System / Mark III|Game Gear|SG-1000 / Multivision]
+### [gearsystem_region]          :[Auto]            :[Auto|Master System Japan|Master System Export|Game Gear Japan|Game Gear Export|Game Gear International]
+### [gearsystem_mapper]          :[Auto]            :[Auto|ROM|SEGA|Codemasters|Korean|SG-1000|MSX|Janggun]
+### [gearsystem_timing]          :[Auto]            :[Auto|NTSC (60 Hz)|PAL (50 Hz)]
+### [gearsystem_bios_sms]        :[Disabled]        :[Disabled|Enabled]
+### [gearsystem_bios_gg]         :[Disabled]        :[Disabled|Enabled]
+### [gearsystem_glasses]         :[Both Eyes / OFF] :[Both Eyes / OFF|Left Eye|Right Eye]
+gearsystem_up_down_allowed = "Disabled"
+gearsystem_system = "Auto"
+gearsystem_region = "Auto"
+gearsystem_mapper = "Auto"
+gearsystem_timing = "Auto"
+gearsystem_bios_sms = "Disabled"
+gearsystem_bios_gg = "Disabled"
+gearsystem_glasses = "Both Eyes / OFF"

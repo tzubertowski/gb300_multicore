@@ -1,0 +1,20 @@
+### [o2em_bios]              :[o2rom.bin] :[o2rom.bin|c52.bin|g7400.bin|jopac.bin]
+### [o2em_region]            :[auto]      :[auto|NTSC|PAL]
+### [o2em_swap_gamepads]     :[disabled]  :[disabled|enabled]
+### [o2em_vkbd_transparency] :[0]         :[0|25|50|75]
+### [o2em_crop_overscan]     :[enabled]   :[disabled|enabled]
+### [o2em_mix_frames]        :[disabled]  :[disabled|mix|ghost_65|ghost_75|ghost_85|ghost_95]
+### [o2em_audio_volume]      :[50]        :[0|5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100]
+### [o2em_voice_volume]      :[70]        :[0|5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95|100]
+### [o2em_low_pass_filter]   :[disabled]  :[disabled|enabled]
+### [o2em_low_pass_range]    :[60]        :[5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95]
+o2em_bios = "o2rom.bin"
+o2em_region = "auto"
+o2em_swap_gamepads = "disabled"
+o2em_vkbd_transparency = "0"
+o2em_crop_overscan = "enabled"
+o2em_mix_frames = "disabled"
+o2em_audio_volume = "50"
+o2em_voice_volume = "70"
+o2em_low_pass_filter = "disabled"
+o2em_low_pass_range = "60"

@@ -1,0 +1,4 @@
+### [2048_theme] :[Light] :[Light|Dark]
+### [2048_fps]   :[60]    :[60|120|240]
+2048_theme = "Light"
+2048_fps = "60"

@@ -1,0 +1,59 @@
+### [pce_fast_palette]                   :[RGB]           :[RGB|Composite]
+### [pce_fast_frameskip_threshold        :[33]            :[15|18|21|24|27|30|33|36|39|42|45|48|51|54|57|60]
+### [pce_fast_hoverscan]                 :[352]           :[300|302|304|306|308|310|312|314|316|318|320|322|324|326|328|330|332|334|336|338|340|342|344|346|348|350|352]
+### [pce_fast_initial_scanline]          :[3]             :[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40]
+### [pce_fast_last_scanline]             :[242]           :[208|209|210|211|212|213|214|215|216|217|218|219|220|221|222|223|224|225|226|227|228|229|230|231|232|233|234|235|236|237|238|239|240|241|242]
+### [pce_fast_sound_channel_0_volume]    :[100]           :[0|10|20|30|40|50|60|70|80|90|100]
+### [pce_fast_sound_channel_1_volume]    :[100]           :[0|10|20|30|40|50|60|70|80|90|100]
+### [pce_fast_sound_channel_2_volume]    :[100]           :[0|10|20|30|40|50|60|70|80|90|100]
+### [pce_fast_sound_channel_3_volume]    :[100]           :[0|10|20|30|40|50|60|70|80|90|100]
+### [pce_fast_sound_channel_4_volume]    :[100]           :[0|10|20|30|40|50|60|70|80|90|100]
+### [pce_fast_sound_channel_5_volume]    :[100]           :[0|10|20|30|40|50|60|70|80|90|100]
+### [pce_fast_mouse_sensitivity]         :[1.25]          :[0.25|0.50|0.75|1.00|1.25|1.50|1.75|2.00|2.25|2.50|2.75|3.00|3.25|3.50|3.75|4.00|4.25|4.50|4.75|5.00]
+### [pce_fast_disable_softreset]         :[disabled]      :[disabled|enabled]
+### [pce_fast_default_joypad_type_p1]    :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [pce_fast_default_joypad_type_p2]    :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [pce_fast_default_joypad_type_p3]    :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [pce_fast_default_joypad_type_p4]    :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [pce_fast_default_joypad_type_p5]    :[2 Buttons]     :[2 Buttons|6 Buttons]
+### [pce_fast_turbo_toggling]            :[disabled]      :[disabled|enabled]
+### [pce_fast_turbo_toggle_hotkey]       :[disabled]      :[disabled|enabled]
+### [pce_fast_turbo_delay]               :[3]             :[1|2|3|4|5|6|7|8|9|10|11|12|13|14|15]
+### [pce_fast_cdimagecache]              :[disabled]      :[disabled|enabled]
+### [pce_fast_cdbios]                    :[System Card 3] :[Games Express|System Card 1|System Card 2|System Card 3|System Card 2 US|System Card 3 US]
+### [pce_fast_cdspeed]                   :[8]             :[1|2|4|8]
+### [pce_fast_adpcmvolume]               :[100]           :[0|10|20|30|40|50|60|70|80|90|100|110|120|130|140|150|160|170|180|190|200]
+### [pce_fast_cddavolume]                :[100]           :[0|10|20|30|40|50|60|70|80|90|100|110|120|130|140|150|160|170|180|190|200]
+### [pce_fast_cdpsgvolume]               :[100]           :[0|10|20|30|40|50|60|70|80|90|100|110|120|130|140|150|160|170|180|190|200]
+### [pce_fast_nospritelimit]             :[disabled]      :[disabled|enabled]
+### [pce_fast_ocmultiplier]              :[1]             :[1|2|3|4|5|6|7|8|9|10|20|30|40|50]
+pce_fast_palette = "RGB"
+pce_fast_frameskip = "auto"
+pce_fast_frameskip_threshold = "33"
+pce_fast_hoverscan = "352"
+pce_fast_initial_scanline = "3"
+pce_fast_last_scanline = "242"
+pce_fast_sound_channel_0_volume = "100"
+pce_fast_sound_channel_1_volume = "100"
+pce_fast_sound_channel_2_volume = "100"
+pce_fast_sound_channel_3_volume = "100"
+pce_fast_sound_channel_4_volume = "100"
+pce_fast_sound_channel_5_volume = "100"
+pce_fast_mouse_sensitivity = "1.25"
+pce_fast_disable_softreset = "disabled"
+pce_fast_default_joypad_type_p1 = "2 Buttons"
+pce_fast_default_joypad_type_p2 = "2 Buttons"
+pce_fast_default_joypad_type_p3 = "2 Buttons"
+pce_fast_default_joypad_type_p4 = "2 Buttons"
+pce_fast_default_joypad_type_p5 = "2 Buttons"
+pce_fast_turbo_toggling = "disabled"
+pce_fast_turbo_toggle_hotkey = "disabled"
+pce_fast_turbo_delay = "3"
+pce_fast_cdimagecache = "disabled"
+pce_fast_cdbios = "System Card 3"
+pce_fast_cdspeed = "8"
+pce_fast_adpcmvolume = "100"
+pce_fast_cddavolume = "100"
+pce_fast_cdpsgvolume = "100"
+pce_fast_nospritelimit = "disabled"
+pce_fast_ocmultiplier = "1"

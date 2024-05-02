@@ -1,0 +1,16 @@
+### [sf2000_tearing_fix]     :[fast]         :[disabled|fast|rotate]
+### [sf2000_rgb_clock]       :[9 MHz]        :[6.6 MHz|9 MHz]
+### [sf2000_h_total_len]     :[477]          :[444|477]
+### [sf2000_v_total_len]     :[326]          :[304|326]
+### [sf2000_scaling_mode]    :[core-provided]:[stock|core-provided|full screen|square pixels|custom]
+### [sf2000_scaling_custom]  :[4:3]          :[4:3|16:9|16:10|16:15|21:9|1:1|2:1|3:2|3:4|4:1|9:16|5:4|6:5|7:9|8:3|8:7|19:12|19:14|30:17|32:9]
+### [sf2000_scaling_filtered]:[true]         :[true|false]
+### [sf2000_show_fps]        :[false]        :[true|false]
+sf2000_tearing_fix = "disabled"
+sf2000_rgb_clock = "9 MHz"
+sf2000_h_total_len = "477"
+sf2000_v_total_len = "326"
+sf2000_scaling_mode = "core-provided"
+sf2000_scaling_custom = "4:3"
+sf2000_scaling_filtered = "true"
+sf2000_show_fps = "false"

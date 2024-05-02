@@ -1,0 +1,12 @@
+### [gearboy_model]          :[Auto]    :[Auto|Game Boy DMG|Game Boy Advance]
+### [gearboy_mapper]         :[Auto]    :[Auto|ROM Only|MBC 1|MBC 2|MBC 3|MBC 5|MBC 1 Multicart]
+### [gearboy_palette]        :[Original]:[Original|Sharp|B/W|Autumn|Soft|Slime]
+### [gearboy_bootrom_dmg]    :[Enabled]:[Disabled|Enabled]
+### [gearboy_bootrom_gbc]    :[Enabled]:[Disabled|Enabled]
+### [gearboy_up_down_allowed]:[Disabled]:[Disabled|Enabled]
+gearboy_bootrom_dmg = "Enabled"
+gearboy_bootrom_gbc = "Enabled"
+gearboy_mapper = "Auto"
+gearboy_model = "Auto"
+gearboy_palette = "Slime"
+gearboy_up_down_allowed = "Disabled"

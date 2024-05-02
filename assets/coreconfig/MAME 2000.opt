@@ -1,0 +1,14 @@
+### [mame2000-frameskip]           :[auto]     :[disabled|auto|threshold]
+### [mame2000-frameskip_interval]  :[1]        :[1|2|3|4|5|6|7|8|9]
+### [mame2000-frameskip_threshold] :[30]       :[30|40|50|60]
+### [mame2000-sample_rate]         :[11025]    :[11025|22050|32000|44100]
+### [mame2000-show_gameinfo]       :[disabled] :[disabled|enabled]
+### [mame2000-skip_disclaimer]     :[enabled]  :[disabled|enabled]
+### [mame2000-stereo]              :[enabled]  :[disabled|enabled]
+mame2000-frameskip = "auto"
+mame2000-frameskip_interval = "1"
+mame2000-frameskip_threshold = "30"
+mame2000-sample_rate = "11025"
+mame2000-show_gameinfo = "disabled"
+mame2000-skip_disclaimer = "enabled"
+mame2000-stereo = "enabled"

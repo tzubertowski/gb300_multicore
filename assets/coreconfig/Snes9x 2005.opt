@@ -1,0 +1,14 @@
+### [snes9x_2005_region]                :[auto]     :[auto|NTSC|PAL]
+### [snes9x_2005_frameskip]             :[auto]     :[0|auto|manual]
+### [snes9x_2005_frameskip_threshold]   :[33]       :[15|18|21|24|27|30|33|36|39|42|45|48|51|54|57|60]
+### [snes9x_2005_low_pass_filter]       :[disabled] :[disabled|enabled]
+### [snes9x_2005_low_pass_range]        :[60]       :[5|10|15|20|25|30|35|40|45|50|55|60|65|70|75|80|85|90|95]
+### [snes9x_2005_overclock_cycles]      :[disabled] :[disabled|compatible|max]
+### [snes9x_2005_reduce_sprite_flicker] :[disabled] :[disabled|enabled]
+snes9x_2005_region = "auto"
+snes9x_2005_frameskip = "auto"
+snes9x_2005_frameskip_threshold = "33"
+snes9x_2005_low_pass_filter = "disabled"
+snes9x_2005_low_pass_range = "60"
+snes9x_2005_overclock_cycles = "disabled"
+snes9x_2005_reduce_sprite_flicker = "disabled"

@@ -1,0 +1,12 @@
+### [prboom-resolution]        :[320x200]     :[320x200|640x400|960x600]
+### [prboom-mouse_on]          :[disabled]    :[disabled|enabled]
+### [prboom-find_recursive_on] :[enabled]     :[disabled|enabled]
+### [prboom-rumble]            :[disabled]    :[disabled|enabled]
+### [prboom-analog_deadzone]   :[15]          :[0|5|10|15|20|25|30]
+### [prboom-purge_limit]       :[16]          :[8|12|16|24|32|48|64|128|256]
+prboom-resolution = "320x200"
+prboom-mouse_on = "disabled"
+prboom-find_recursive_on = "enabled"
+prboom-rumble = "disabled"
+prboom-analog_deadzone = "15"
+prboom-purge_limit = "16"

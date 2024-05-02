@@ -1,0 +1,16 @@
+### [theodore_rom]                     :[Auto]     :[Auto|TO8|TO8D|TO9|TO9+|MO5|MO6|PC128|TO7|TO7/70]
+### [theodore_autorun]                 :[disabled] :[disabled|enabled]
+### [theodore_autostart_use_game_hash] :[enabled]  :[disabled|enabled]
+### [theodore_autostart_message_hint]  :[enabled]  :[disabled|enabled]
+### [theodore_vkb_transparency]        :[0%]       :[0%|10%|20%|30%|40%|50%|60%|70%|80%|90%]
+### [theodore_floppy_write_protect]    :[enabled]  :[disabled|enabled]
+### [theodore_tape_write_protect]      :[enabled]  :[disabled|enabled]
+### [theodore_printer_emulation]       :[disabled] :[disabled|enabled]
+theodore_rom = "Auto"
+theodore_autorun = "disabled"
+theodore_autostart_use_game_hash = "enabled"
+theodore_autostart_message_hint = "enabled"
+theodore_vkb_transparency = "0%"
+theodore_floppy_write_protect = "enabled"
+theodore_tape_write_protect = "enabled"
+theodore_printer_emulation = "disabled"

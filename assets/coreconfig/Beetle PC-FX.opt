@@ -1,0 +1,20 @@
+### [pcfx_cdimagecache]                  :[disabled] :[disabled|enabled]
+### [pcfx_high_dotclock_width]           :[1024]     :[256|341|1024]
+### [pcfx_suppress_channel_reset_clicks] :[enabled]  :[disabled|enabled]
+### [pcfx_emulate_buggy_codec]           :[disabled] :[disabled|enabled]
+### [pcfx_resamp_quality]                :[3]        :[0|1|2|3|4|5]
+### [pcfx_rainbow_chromaip]              :[disabled] :[disabled|enabled]
+### [pcfx_nospritelimit]                 :[disabled] :[disabled|enabled]
+### [pcfx_initial_scanline]              :[4]        :[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40]
+### [pcfx_last_scanline]                 :[235]      :[208|209|210|211|212|213|214|215|216|217|218|219|220|221|222|223|224|225|226|227|228|229|230|231|232|233|234|235|236|237|238|239]
+### [pcfx_mouse_sensitivity]             :[1.25]     :[1.00|1.25|1.50|1.75|2.00|2.25|2.50|2.75|3.00|3.25|3.50|3.75|4.00|4.25|4.50|4.75|5.00]
+pcfx_cdimagecache = "disabled"
+pcfx_high_dotclock_width = "1024"
+pcfx_suppress_channel_reset_clicks = "enabled"
+pcfx_emulate_buggy_codec = "disabled"
+pcfx_resamp_quality = "3"
+pcfx_rainbow_chromaip = "disabled"
+pcfx_nospritelimit = "disabled"
+pcfx_initial_scanline = "4"
+pcfx_last_scanline = "235"
+pcfx_mouse_sensitivity = "1.25"

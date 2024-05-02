@@ -1,0 +1,67 @@
+### [fceumm_apu_1]                   :[enabled]   :[disabled|enabled]
+### [fceumm_apu_2]                   :[enabled]   :[disabled|enabled]
+### [fceumm_apu_3]                   :[enabled]   :[disabled|enabled]
+### [fceumm_apu_4]                   :[enabled]   :[disabled|enabled]
+### [fceumm_apu_5]                   :[enabled]   :[disabled|enabled]
+### [fceumm_arkanoid_mode]           :[mouse]     :[abs_mouse|mouse|stelladaptor|touchscreen]
+### [fceumm_aspect]                  :[8:7 PAR]   :[8:7 PAR|4:3|PP]
+### [fceumm_game_genie]              :[disabled]  :[disabled|enabled]
+### [fceumm_mouse_sensitivity]       :[100]       :[20|30|40|50|60|70|80|90|100|110|120|130|140|150|160|170|180|190|200]
+### [fceumm_nospritelimit]           :[disabled]  :[disabled|enabled]
+### [fceumm_ntsc_filter]             :[disabled]  :[disabled|composite|svideo|rgb|monochrome]
+### [fceumm_overclocking]            :[disabled]  :[disabled|2x-Postrender|2x-VBlank]
+### [fceumm_overscan_h_left]         :[0]         :[0|4|8|12|16]
+### [fceumm_overscan_h_right]        :[0]         :[0|4|8|12|16]
+### [fceumm_overscan_v_bottom]       :[8]         :[0|4|8|12|16|20|24]
+### [fceumm_overscan_v_top]          :[8]         :[0|4|8|12|16|20|24]
+### [fceumm_palette]                 :[default]   :[default|asqrealc|nintendo-vc|rgb|yuv-v3|unsaturated-final|sony-cxa2025as-us|pal|bmf-final2|bmf-final3|smooth-fbx|composite-direct-fbx|pvm-style-d93-fbx|ntsc-hardware-fbx|nes-classic-fbx-fs|nescap|wavebeam|digital-prime-fbx|magnum-fbx|smooth-v2-fbx|nes-classic-fbx|raw|custom]
+### [fceumm_ramstate]                :[fill $ff]  :[fill $ff|fill $00|random]
+### [fceumm_region]                  :[Auto]      :[Auto|NTSC|PAL|Dendy]
+### [fceumm_show_adv_sound_options]  :[disabled]  :[disabled|enabled]
+### [fceumm_show_adv_system_options] :[disabled]  :[disabled|enabled]
+### [fceumm_show_crosshair]          :[enabled]   :[disabled|enabled]
+### [fceumm_sndlowpass]              :[disabled]  :[disabled|enabled]
+### [fceumm_sndquality]              :[Low]       :[Low|High|Very High]
+### [fceumm_sndstereodelay]          :[disabled]  :[disabled|01_ms_delay|02_ms_delay|03_ms_delay|04_ms_delay|05_ms_delay|06_ms_delay|07_ms_delay|08_ms_delay|09_ms_delay|10_ms_delay|11_ms_delay|12_ms_delay|13_ms_delay|14_ms_delay|15_ms_delay|16_ms_delay|17_ms_delay|18_ms_delay|19_ms_delay|20_ms_delay|21_ms_delay|22_ms_delay|23_ms_delay|24_ms_delay|25_ms_delay|26_ms_delay|27_ms_delay|28_ms_delay|29_ms_delay|30_ms_delay|31_ms_delay|32_ms_delay]
+### [fceumm_sndvolume]               :[7]         :[0|1|2|3|4|5|6|7|8|9|10]
+### [fceumm_swapduty]                :[disabled]  :[disabled|enabled]
+### [fceumm_turbo_delay]             :[3]         :[1|2|3|5|10|15|30|60]
+### [fceumm_turbo_enable]            :[None]      :[None|Player 1|Player 2|Both]
+### [fceumm_up_down_allowed]         :[disabled]  :[disabled|enabled]
+### [fceumm_zapper_mode]             :[clightgun] :[clightgun|stlightgun|touchscreen|mouse]
+### [fceumm_zapper_sensor]           :[enabled]   :[disabled|enabled]
+### [fceumm_zapper_tolerance]        :[6]         :[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20]
+### [fceumm_zapper_trigger]          :[enabled]   :[disabled|enabled]
+fceumm_apu_1 = "enabled"
+fceumm_apu_2 = "enabled"
+fceumm_apu_3 = "enabled"
+fceumm_apu_4 = "enabled"
+fceumm_apu_5 = "enabled"
+fceumm_arkanoid_mode = "mouse"
+fceumm_aspect = "8:7 PAR"
+fceumm_game_genie = "disabled"
+fceumm_mouse_sensitivity = "100"
+fceumm_nospritelimit = "disabled"
+fceumm_overclocking = "disabled"
+fceumm_overscan_h_left = "0"
+fceumm_overscan_h_right = "0"
+fceumm_overscan_v_bottom = "8"
+fceumm_overscan_v_top = "8"
+fceumm_palette = "default"
+fceumm_ramstate = "fill $ff"
+fceumm_region = "Auto"
+fceumm_show_adv_sound_options = "disabled"
+fceumm_show_adv_system_options = "disabled"
+fceumm_show_crosshair = "enabled"
+fceumm_sndlowpass = "disabled"
+fceumm_sndquality = "Low"
+fceumm_sndstereodelay = "disabled"
+fceumm_sndvolume = "7"
+fceumm_swapduty = "disabled"
+fceumm_turbo_delay = "3"
+fceumm_turbo_enable = "None"
+fceumm_up_down_allowed = "disabled"
+fceumm_zapper_mode = "clightgun"
+fceumm_zapper_sensor = "enabled"
+fceumm_zapper_tolerance = "6"
+fceumm_zapper_trigger = "enabled"

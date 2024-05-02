@@ -1,0 +1,40 @@
+### [fuse_machine]              :[Spectrum 128K] :[Spectrum 48K|Spectrum 48K (NTSC)|Spectrum 128K|Spectrum +2|Spectrum +2A|Spectrum +3|Spectrum +3e|Spectrum SE|Timex TC2048|Timex TC2068|Timex TS2068|Spectrum 16K|Pentagon 128K|Pentagon 512K|Pentagon 1024|Scorpion 256K]
+### [fuse_size_border]          :[minimum]       :[full|medium|small|minimum|none]
+### [fuse_auto_load]            :[enabled]       :[disabled|enabled]
+### [fuse_fast_load]            :[enabled]       :[disabled|enabled]
+### [fuse_load_sound]           :[enabled]       :[disabled|enabled]
+### [fuse_speaker_type]         :[tv speaker]    :[tv speaker|beeper|unfiltered]
+### [fuse_ay_stereo_separation] :[none]          :[none|acb|abc]
+### [fuse_key_ovrlay_transp]    :[enabled]       :[enabled|disabled]
+### [fuse_key_hold_time]        :[500]           :[500|1000|100|300]
+### [fuse_joypad_left]          :[o]             :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_right]         :[p]             :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_up]            :[q]             :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_down]          :[a]             :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_start]         :[<none>]        :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_a]             :[m]             :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_b]             :[Space]         :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_x]             :[0]             :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_y]             :[n]             :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_l]             :[<none>]        :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+### [fuse_joypad_r]             :[<none>]        :[<none>|0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|Enter|Caps|Symbol|Space]
+fuse_machine = "Spectrum 128K"
+fuse_size_border = "minimum"
+fuse_auto_load = "enabled"
+fuse_fast_load = "enabled"
+fuse_load_sound = "enabled"
+fuse_speaker_type = "tv speaker"
+fuse_ay_stereo_separation = "none"
+fuse_key_ovrlay_transp = "enabled"
+fuse_key_hold_time = "500"
+fuse_joypad_left = "o"
+fuse_joypad_right = "p"
+fuse_joypad_up = "q"
+fuse_joypad_down = "a"
+fuse_joypad_start = "<none>"
+fuse_joypad_a = "m"
+fuse_joypad_b = "Space"
+fuse_joypad_x = "0"
+fuse_joypad_y = "n"
+fuse_joypad_l = "<none>"
+fuse_joypad_r = "<none>"

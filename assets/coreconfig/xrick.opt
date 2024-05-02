@@ -1,0 +1,8 @@
+### [xrick_cheat1]      :[disabled]:[disabled|enabled]
+### [xrick_cheat2]      :[disabled]:[disabled|enabled]
+### [xrick_cheat3]      :[disabled]:[disabled|enabled]
+### [xrick_crop_borders]:[enabled] :[disabled|enabled]
+xrick_cheat1 = "disabled"
+xrick_cheat2 = "disabled"
+xrick_cheat3 = "disabled"
+xrick_crop_borders = "enabled"

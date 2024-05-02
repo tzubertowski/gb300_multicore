@@ -1,0 +1,64 @@
+### [nestopia_arkanoid_device]  :[mouse] :[mouse|pointer]
+### [nestopia_aspect]  :[auto] :[auto|ntsc|pal|4:3|uncorrected]
+### [nestopia_audio_type]  :[stereo] :[stereo|mono]
+### [nestopia_audio_vol_dpcm]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_fds]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_mmc5]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_n163]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_noise]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_s5b]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_sq1]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_sq2]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_tri]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_vrc6]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_audio_vol_vrc7]  :[100] :[0|10|20|30|40|50|60|70|80|85|90|95|100]
+### [nestopia_blargg_ntsc_filter]  :[disabled] :[disabled|composite|svideo|rgb|monochrome]
+### [nestopia_button_shift]  :[disabled] :[disabled|enabled]
+### [nestopia_favored_system]  :[auto] :[auto|ntsc|pal|famicom|dendy]
+### [nestopia_fds_auto_insert]  :[disabled] :[disabled|enabled]
+### [nestopia_genie_distortion]  :[disabled] :[disabled|enabled]
+### [nestopia_nospritelimit]  :[disabled] :[disabled|enabled]
+### [nestopia_overclock]  :[1x] :[1x|2x]
+### [nestopia_overscan_h_left]  :[0] :[0|4|8|16|32]
+### [nestopia_overscan_h_right]  :[0] :[0|4|8|16|32]
+### [nestopia_overscan_v_bottom]  :[8] :[0|4|8|16|20|24]
+### [nestopia_overscan_v_top]  :[8] :[0|4|8|16|20|24]
+### [nestopia_palette]  :[cxa2025as] :[cxa2025as|consumer|canonical|alternative|rgb|pal|composite-direct-fbx|pvm-style-d93-fbx|ntsc-hardware-fbx|nes-classic-fbx-fs|raw|custom]
+### [nestopia_ram_power_state]  :[0x00] :[0x00|0xFF|random]
+### [nestopia_select_adapter]  :[auto] :[auto|ntsc|famicom]
+### [nestopia_show_advanced_av_settings]  :[disabled] :[disabled|enabled]
+### [nestopia_show_crosshair]  :[enabled] :[disabled|enabled]
+### [nestopia_turbo_pulse]  :[2] :[2|3|4|5|6|7|8|9]
+### [nestopia_zapper_device]  :[lightgun] :[lightgun|mouse|pointer]
+nestopia_arkanoid_device = "mouse"
+nestopia_aspect = "auto"
+nestopia_audio_type = "stereo"
+nestopia_audio_vol_dpcm = "100"
+nestopia_audio_vol_fds = "100"
+nestopia_audio_vol_mmc5 = "100"
+nestopia_audio_vol_n163 = "100"
+nestopia_audio_vol_noise = "100"
+nestopia_audio_vol_s5b = "100"
+nestopia_audio_vol_sq1 = "100"
+nestopia_audio_vol_sq2 = "100"
+nestopia_audio_vol_tri = "100"
+nestopia_audio_vol_vrc6 = "100"
+nestopia_audio_vol_vrc7 = "100"
+nestopia_blargg_ntsc_filter = "disabled"
+nestopia_button_shift = "disabled"
+nestopia_favored_system = "auto"
+nestopia_fds_auto_insert = "enabled"
+nestopia_genie_distortion = "disabled"
+nestopia_nospritelimit = "disabled"
+nestopia_overclock = "1x"
+nestopia_overscan_h_left = "0"
+nestopia_overscan_h_right = "0"
+nestopia_overscan_v_bottom = "8"
+nestopia_overscan_v_top = "8"
+nestopia_palette = "cxa2025as"
+nestopia_ram_power_state = "0x00"
+nestopia_select_adapter = "auto"
+nestopia_show_advanced_av_settings = "disabled"
+nestopia_show_crosshair = "enabled"
+nestopia_turbo_pulse = "2"
+nestopia_zapper_device = "lightgun"

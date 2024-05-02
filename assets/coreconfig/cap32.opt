@@ -1,0 +1,38 @@
+### [cap32_retrojoy0]               :[joystick]  :[auto|qaop|incentive|joystick_port1]
+### [cap32_retrojoy1]               :[joystick]  :[auto|qaop|incentive|joystick_port1|joystick_port2]
+### [cap32_combokey]                :[b]    :[select|y|b|disabled]
+### [cap32_db_mapkeys]              :[enabled]   :[disabled|enabled]
+### [cap32_lightgun_input]          :[disabled]  :[disabled|phaser|gunstick]
+### [cap32_lightgun_show]           :[disabled]  :[disabled|enabled]
+### [cap32_model]                   :[6128]      :[6128|464|664|6128+ (experimental)]
+### [cap32_autorun]                 :[enabled]   :[disabled|enabled]
+### [cap32_ram]                     :[128]       :[128|64|192|576]
+### [cap32_advanced_green_phosphor] :[15]        :[15|20|30|5|10]
+### [cap32_scr_intensity]           :[5]         :[8|9|10|11|12|13|14|15|5|6|7]
+### [cap32_gfx_colors]              :[16bit]     :[16bit]
+### [cap32_resolution]              :[384x272]   :[384x272]
+### [cap32_scr_crop]                :[disabled]  :[disabled|enabled]
+### [cap32_statusbar]               :[onloading] :[onloading|enabled|disabled]
+### [cap32_keyboard_transparency]   :[disabled]  :[disabled|enabled]
+### [cap32_floppy_sound]            :[disabled]  :[disabled|enabled]
+### [cap32_scr_tube]                :[color]     :[color|green|white]
+### [cap32_lang_layout]             :[english]   :[english|french|spanish]
+cap32_retrojoy0 = "joystick_port1"
+cap32_retrojoy1 = "joystick_port2"
+cap32_combokey = "y"
+cap32_db_mapkeys = "enabled"
+cap32_lightgun_input = "disabled"
+cap32_lightgun_show = "disabled"
+cap32_model = "6128"
+cap32_autorun = "enabled"
+cap32_ram = "128"
+cap32_advanced_green_phosphor = "15"
+cap32_scr_intensity = "10"
+cap32_gfx_colors = "16bit"
+cap32_resolution = "384x272"
+cap32_scr_crop = "enabled"
+cap32_statusbar = "onloading"
+cap32_keyboard_transparency = "disabled"
+cap32_floppy_sound = "disabled"
+cap32_scr_tube = "color"
+cap32_lang_layout = "english"

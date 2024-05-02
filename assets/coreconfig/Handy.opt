@@ -1,0 +1,14 @@
+### [handy_refresh_rate]        :[60]       :[50|60|75|100|120]
+### [handy_rot]                 :[Auto]     :[Auto|None|270|180|90]
+### [handy_gfx_colors]          :[16bit]    :[16bit|24bit]
+### [handy_lcd_ghosting]        :[disabled] :[disabled|2frames|3frames|4frames]
+### [handy_overclock]           :[1]        :[1|2|3|4|5|6|7|8|9|10|20|30|40|50]
+### [handy_frameskip]           :[auto]     :[disabled|auto|manual]
+### [handy_frameskip_threshold] :[33]       :[15|18|21|24|27|30|33|36|39|42|45|48|51|54|57|60]
+handy_refresh_rate = "60"
+handy_rot = "Auto"
+handy_gfx_colors = "16bit"
+handy_lcd_ghosting = "disabled"
+handy_overclock = "1"
+handy_frameskip = "auto"
+handy_frameskip_threshold = "33"

@@ -1,0 +1,6 @@
+### [lynx_force_60hz]        :[disabled]   :[disabled|enabled]
+### [lynx_pix_format]        :[16]         :[16|32]
+### [lynx_rot_screen]        :[auto]       :[auto|manual|0|90|180|270]   
+lynx_force_60hz = "disabled"
+lynx_pix_format = "16"
+lynx_rot_screen = "auto"
