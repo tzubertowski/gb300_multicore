@@ -11,3 +11,5 @@ sdcard
 core_87000000
 crc
 *~*
+
+!assets/os/bisrv.asd

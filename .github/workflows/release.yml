@@ -18,7 +18,7 @@ jobs:
         with:
           submodules: 'recursive'
       - name: Build the release
-        run: ./entrypoint.sh
+        run: ./.github/scripts/entrypoint.sh
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
