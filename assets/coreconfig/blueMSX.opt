@@ -1,3 +1,10 @@
+### [bluemsx_msxtype]         :[Auto]     :[Auto|MSX|MSXturboR|MSX2|MSX2+|SEGA - SG-1000|SEGA - SC-3000|SEGA - SF-7000|SVI - Spectravideo SVI-318|SVI - Spectravideo SVI-328|SVI - Spectravideo SVI-328 MK2|ColecoVision|Coleco (Spectravideo SVI-603)]
+### [bluemsx_overscan]        :[disabled] :[disabled|enabled|MSX2]
+### [bluemsx_vdp_synctype]    :[Auto]     :[Auto|50Hz|60Hz]
+### [bluemsx_nospritelimits]  :[OFF]      :[OFF|ON]
+### [bluemsx_ym2413_enable]   :[enabled]  :[enabled|disabled]
+### [bluemsx_cartmapper]      :[Auto]     :[Auto|Normal|mirrored|basic|0x4000|0xC000|ascii8|ascii8sram|ascii16|ascii16sram|ascii16nf|konami4|konami4nf|konami5|konamisynth|korean80|korean90|korean126|MegaFlashRomScc|MegaFlashRomSccPlus|msxdos2|scc|sccexpanded|sccmirrored|sccplus|snatcher|sdsnatcher|SegaBasic|SG1000|SG1000Castle|SG1000RamA|SG1000RamB|SC3000]
+### [bluemsx_auto_rewind_cas] :[ON]       :[ON|OFF]
 bluemsx_msxtype = "Auto"
 bluemsx_overscan = "disabled"
 bluemsx_vdp_synctype = "Auto"
