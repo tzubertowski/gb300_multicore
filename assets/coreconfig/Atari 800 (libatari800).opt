@@ -1,7 +1,7 @@
 ### [atari800lib_system]       :[800XL]          :[800|800XL|1200XL|130XE|XE 320K|XE 1088K]
 ### [atari800lib_tvmode]       :[Auto]           :[Auto|NTSC|PAL]
 ### [atari800lib_internalbasic]:[Auto]           :[Auto|Off|On]
-### [atari800lib_artifacting]  :[None]           :[disabled|auto|manual]
+### [atari800lib_artifacting]  :[None]           :[None|Blue/Brown 1|Blue/Brown 2|GTIA|CTIA|New Blue/Brown 1|New Blue/Brown 2|New GTIA|New CTIA]
 ### [atari800lib_sioaccel]     :[enabled]        :[disabled|enabled]
 ### [atari800lib_leds]         :[API passthrough]:[None|On screen|On screen with counter|API passthrough]
 atari800lib_system = "800XL"
