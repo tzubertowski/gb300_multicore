@@ -10,5 +10,7 @@ rm -rf sdcard
 ./buildcoresworking.sh
 
 cp -r assets/coreconfig/* /__w/gb300_multicore/gb300_multicore/sdcard/core/config/*
+cp -r LICENSE /__w/gb300_multicore/gb300_multicore/sdcard/LICENSE
+cp -r README.md /__w/gb300_multicore/gb300_multicore/sdcard/README.md
 
 tar -czvf /__w/gb300_multicore/gb300_multicore/gb300-multicore-canary.tar.gz /__w/gb300_multicore/gb300_multicore/sdcard
