@@ -2,6 +2,8 @@
 *.o
 *.map
 cores/*
+assets/coreconfig/*
+
 sdcard
 
 *.asd
