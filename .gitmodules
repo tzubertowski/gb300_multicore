@@ -9,3 +9,4 @@
 [submodule "assets/coreconfig"]
 	path = assets/coreconfig
 	url = git@github.com:tzubertowski/sf2000_gb300_multicore_core_config.git
+	branch = master
