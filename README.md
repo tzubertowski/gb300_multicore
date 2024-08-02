@@ -82,6 +82,8 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - gpgx (Genesis-Plus-GX)
 - xmil
 - quake (port)
+- dblcherrygb (doublecherryGB)
+- geolith
 
 ## About the platform
 More information about the GB300 handheld gaming system can be found [here](https://nummacway.github.io/gb300/).
