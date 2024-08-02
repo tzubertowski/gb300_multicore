@@ -3,7 +3,8 @@
 *.map
 cores/*
 assets/coreconfig/*
-
+.idea
+gb300-multicore-*
 sdcard
 
 *.asd
