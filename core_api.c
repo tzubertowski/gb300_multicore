@@ -140,8 +140,13 @@ struct retro_core_t *__core_entry__(void) __attribute__((section(".init.core_ent
 
 struct retro_core_t *__core_entry__(void)
 {
-		clear_bss();
-
+	// https://gitlab.com/kobily/sf2000_multicore/-/commit/328bce4173316a6ea0afe4c360ee4f3d5b951c19 condensed to core's side
+	os_disable_interrupt();
+	*(unsigned *)0x80049744 = 0x3c1c8070; // lui$gp, 0x8070
+	*(unsigned *)0x80049748 = 0x279cd798; // addiu$gp, 0xd798
+	__builtin___clear_cache((void *)0x80049744, (void *)0x8004974c);
+	os_enable_interrupt();
+	clear_bss();
 	extern void __sinit (struct _reent *);
 	extern void __libc_init_array (void);
 

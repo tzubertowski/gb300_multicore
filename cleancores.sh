@@ -28,6 +28,7 @@ make clean CONSOLE=msx        CORE=cores/libretro-blueMSX && \
 make clean CONSOLE=gme        CORE=cores/libretro-gme && \
 make clean CONSOLE=pce        CORE=cores/libretro-beetle-pce-fast && \
 make clean CONSOLE=ngpc       CORE=cores/RACE && \
+make clean CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB && \
 make clean CONSOLE=gba        CORE=cores/gpsp && \
 make clean CONSOLE=gbb        CORE=cores/libretro-gambatte && \
 make clean CONSOLE=gbgb       CORE=cores/Gearboy/platforms/libretro && \
@@ -70,6 +71,7 @@ make clean CONSOLE=mgba       CORE=cores/mgba && \
 make clean CONSOLE=nest       CORE=cores/nestopia/libretro && \
 make clean CONSOLE=vb         CORE=cores/libretro-beetle-vb && \
 make clean CONSOLE=gpgx       CORE=cores/Genesis-Plus-GX MAKEFILE=-fMakefile.libretro && \
+make clean CONSOLE=geolith    CORE=cores/libretro-geolith/libretro && \
 make clean CONSOLE=xmil       CORE=cores/libretro-xmil/libretro && \
 
 #working but major issues, not to release
@@ -120,13 +122,17 @@ make clean CONSOLE=psx        CORE=cores/libretro-beetle-psx && \
 
 #experimental
 #
-#make clean CONSOLE=c128   CORE=cores/libretro-vice EMUTYPE=x128 && \
-#make clean CONSOLE=cbm2   CORE=cores/libretro-vice EMUTYPE=xcbm2 && \
-#make clean CONSOLE=cbm5x0 CORE=cores/libretro-vice EMUTYPE=xcbm5x0 && \
-#make clean CONSOLE=pet    CORE=cores/libretro-vice EMUTYPE=xpet && \
-#make clean CONSOLE=plus4  CORE=cores/libretro-vice EMUTYPE=xplus4 && \
-#make clean CONSOLE=scpu64 CORE=cores/libretro-vice EMUTYPE=xscpu64 && \
+#make clean CONSOLE=c128       CORE=cores/libretro-vice EMUTYPE=x128 && \
+#make clean CONSOLE=cbm2       CORE=cores/libretro-vice EMUTYPE=xcbm2 && \
+#make clean CONSOLE=cbm5x0     CORE=cores/libretro-vice EMUTYPE=xcbm5x0 && \
+#make clean CONSOLE=pet        CORE=cores/libretro-vice EMUTYPE=xpet && \
+#make clean CONSOLE=plus4      CORE=cores/libretro-vice EMUTYPE=xplus4 && \
+#make clean CONSOLE=scpu64     CORE=cores/libretro-vice EMUTYPE=xscpu64 && \
+#make clean CONSOLE=a800       CORE=cores/libretro-atari800 && \
 #make clean CONSOLE=snes10     CORE=../cores_not_in_git/snes9x2010 && \
+#make clean CONSOLE=pressf     CORE=../cores_not_in_git/Press_F && \
+#make clean CONSOLE=dosboxl    CORE=../cores_not_in_git/dosbox-libretro && \
+#make clean CONSOLE=obake      CORE=../cores_not_in_git/libretro-experiment && \
 
 
 true

@@ -29,6 +29,7 @@ make CONSOLE=gme        CORE=cores/libretro-gme && \
 make CONSOLE=pce        CORE=cores/libretro-beetle-pce-fast && \
 make CONSOLE=ngpc       CORE=cores/RACE && \
 make CONSOLE=gba        CORE=cores/gpsp && \
+make CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB && \
 make CONSOLE=gbb        CORE=cores/libretro-gambatte && \
 make CONSOLE=gbgb       CORE=cores/Gearboy/platforms/libretro && \
 make CONSOLE=gb         CORE=cores/libretro-tgbdual && \
@@ -80,6 +81,7 @@ make CONSOLE=mgba       CORE=cores/mgba && \
 make CONSOLE=nest       CORE=cores/nestopia/libretro && \
 make CONSOLE=vb         CORE=cores/libretro-beetle-vb && \
 make CONSOLE=gpgx       CORE=cores/Genesis-Plus-GX MAKEFILE=-fMakefile.libretro && \
+make CONSOLE=geolith    CORE=cores/libretro-geolith/libretro && \
 make CONSOLE=xmil       CORE=cores/libretro-xmil/libretro && \
 
 #working but major issues, not to release
@@ -140,5 +142,6 @@ make CONSOLE=psx        CORE=cores/libretro-beetle-psx && \
 #make CONSOLE=pressf       CORE=../cores_not_in_git/Press_F && \
 #make CONSOLE=dosboxl      CORE=../cores_not_in_git/dosbox-libretro && \
 #make CONSOLE=obake        CORE=../cores_not_in_git/libretro-experiment && \
+
 
 true

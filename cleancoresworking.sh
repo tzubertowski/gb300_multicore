@@ -29,6 +29,7 @@ make clean CONSOLE=gme        CORE=cores/libretro-gme && \
 make clean CONSOLE=pce        CORE=cores/libretro-beetle-pce-fast && \
 make clean CONSOLE=ngpc       CORE=cores/RACE && \
 make clean CONSOLE=gba        CORE=cores/gpsp && \
+make clean CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB && \
 make clean CONSOLE=gbb        CORE=cores/libretro-gambatte && \
 make clean CONSOLE=gbgb       CORE=cores/Gearboy/platforms/libretro && \
 make clean CONSOLE=gb         CORE=cores/libretro-tgbdual && \
@@ -70,6 +71,7 @@ make clean CONSOLE=mgba       CORE=cores/mgba && \
 make clean CONSOLE=nest       CORE=cores/nestopia/libretro && \
 make clean CONSOLE=vb         CORE=cores/libretro-beetle-vb && \
 make clean CONSOLE=gpgx       CORE=cores/Genesis-Plus-GX MAKEFILE=-fMakefile.libretro && \
+make clean CONSOLE=geolith    CORE=cores/libretro-geolith/libretro && \
 make clean CONSOLE=xmil       CORE=cores/libretro-xmil/libretro && \
 
 #working but major issues, not to release
