@@ -10,7 +10,7 @@ rm -rf sdcard
 ./buildcoresworking.sh
 mkdir -r sdcard/cores/config
 
-cp -r assets/coreconfig/*sdcard/cores/config/*
+cp -r assets/coreconfig/* sdcard/cores/config
 
 mkdir -p sdcard/roms/amstradb
 mkdir -p sdcard/roms/m2k

@@ -82,6 +82,6 @@ mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/geolith
 mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/xmil
 mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/quake
 
-cp -r assets/coreconfig/* /__w/gb300_multicore/gb300_multicore/sdcard/cores/config/*
+cp -r assets/coreconfig/* /__w/gb300_multicore/gb300_multicore/sdcard/cores/config
 
 tar -czvf /__w/gb300_multicore/gb300_multicore/gb300-multicore-canary.tar.gz /__w/gb300_multicore/gb300_multicore/sdcard
