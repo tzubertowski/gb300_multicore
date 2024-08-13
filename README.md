@@ -1,4 +1,5 @@
 # GB300 Multicore - port of multicore from SF2000
+![GB300 Multicore](https://github.com/tzubertowski/gb300_multicore/tree/master/assets/images/logo-simple.png)
 This repo is a fork of original work done for [Multicore for SF2000](https://github.com/madcock/sf2000_multicore) handheld. All credits go to those folks working on the multicore. 
 
 This fork especially would not be here if it was not for the amazing work of [Osaka @ RetroHandhelds discord](https://discord.com/channels/741895796315914271/1195581037003165796/1232748087714250894).
@@ -45,10 +46,10 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - gme
 - pce (beetle-pce)
 - ngpc (RACE)
-- gba (running with dynarec)
-- gbb (gambatte)
+- gba (GPSP running with dynarec, working saves)
+- gbb (tgbdual)
 - gbgb (gearboy)
-- gb (tgbdual)
+- gb (gambatte)
 - nes (fceumm)
 - nesq (QuickNES)
 - pokem (PokeMini)

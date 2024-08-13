@@ -8,14 +8,14 @@ cp -r assets/os/bisrv.asd bisrv_08_03.asd
 rm -rf sdcard
 ./cleancoresworking.sh
 ./buildcoresworking.sh
-mkdir -r sdcard/cores/config
+mkdir -p sdcard/cores/config
 
 cp -r assets/coreconfig/* sdcard/cores/config
 
 mkdir -p sdcard/roms/amstradb
 mkdir -p sdcard/roms/m2k
 mkdir -p sdcard/roms/a26
-mkdir -p sdcard/roms/a5200CORE=cores/a5200
+mkdir -p sdcard/roms/a5200
 mkdir -p sdcard/roms/a78
 mkdir -p sdcard/roms/a800
 mkdir -p sdcard/roms/lnx

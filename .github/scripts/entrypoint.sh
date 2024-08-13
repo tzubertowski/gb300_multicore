@@ -13,7 +13,7 @@ mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/cores/config
 mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/amstradb
 mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/m2k
 mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/a26
-mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/a5200CORE=cores/a5200
+mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/a5200
 mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/a78
 mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/a800
 mkdir -p /__w/gb300_multicore/gb300_multicore/sdcard/roms/lnx
