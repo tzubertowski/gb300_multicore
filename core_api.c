@@ -34,6 +34,7 @@ static void mono_mix_audio_sample_cb(int16_t left, int16_t right);
 static bool wrap_retro_load_game(const struct retro_game_info* info);
 static void wrap_retro_init(void);
 static void wrap_retro_deinit(void);
+static void wrap_retro_unload_game(void);
 
 static void log_cb(enum retro_log_level level, const char *fmt, ...);
 
@@ -83,12 +84,33 @@ struct retro_core_t core_exports = {
    .retro_cheat_set = retro_cheat_set,
    .retro_load_game = wrap_retro_load_game,
    .retro_load_game_special = retro_load_game_special,
-   .retro_unload_game = retro_unload_game,
+   .retro_unload_game = wrap_retro_unload_game,
    .retro_get_region = retro_get_region,
    .retro_get_memory_data = retro_get_memory_data,
    .retro_get_memory_size = retro_get_memory_size,
 };
 
+void build_auto_ram_filepath(char *filepath, size_t size, const char *game_filepath)
+{
+	char basename[MAXPATH];
+	fill_pathname_base(basename, game_filepath, sizeof(basename));
+	path_remove_extension(basename);
+	snprintf(filepath, size, SAVE_DIRECTORY "/%s.ram", basename);
+}
+void wrap_retro_unload_game(void){
+	char ram_filepath[MAXPATH];
+	build_auto_ram_filepath(ram_filepath, sizeof(ram_filepath), s_game_filepath);
+	size_t save_size = retro_get_memory_size(RETRO_MEMORY_SAVE_RAM);
+	if(save_size == 0)
+		return retro_unload_game();
+	FILE *ram_file = fopen(ram_filepath, "wb");
+	if (!ram_file)
+		return retro_unload_game();
+	fwrite(retro_get_memory_data(RETRO_MEMORY_SAVE_RAM), save_size, 1, ram_file);
+	fclose(ram_file);
+	fs_sync(ram_filepath);
+	retro_unload_game();
+}
 
 static void clear_bss()
 {
@@ -245,6 +267,25 @@ bool wrap_retro_load_game(const struct retro_game_info* info)
 		// make sure the first two controllers are configured as gamepads
 		retro_set_controller_port_device(0, RETRO_DEVICE_JOYPAD);
 		retro_set_controller_port_device(1, RETRO_DEVICE_JOYPAD);
+
+		size_t save_size = retro_get_memory_size(RETRO_MEMORY_SAVE_RAM);
+		char ram_filepath[MAXPATH];
+		build_auto_ram_filepath(ram_filepath, sizeof(ram_filepath), s_game_filepath);
+		FILE *ram_file = fopen(ram_filepath, "rb");
+		if (!ram_file)
+			return ret;
+		fseeko(ram_file, 0, SEEK_END);
+		size_t ram_file_size = ftell(ram_file);
+		fseeko(ram_file, 0, SEEK_SET);
+		if(ram_file_size < save_size){
+			save_size = ram_file_size;
+		}
+		if(save_size == 0){
+			fclose(ram_file);
+			return ret;
+		}
+		fread(retro_get_memory_data(RETRO_MEMORY_SAVE_RAM), 1, save_size, ram_file);
+		fclose(ram_file);
 	}
 
 	return ret;
