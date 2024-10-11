@@ -1,157 +1,157 @@
 /* libc */
-strcat	= 0x80165fd4;
-strncmp	= 0x80166070;
-strncpy	= 0x80166148;
-strchr	= 0x80166218;
-strrchr	= 0x801662a8;
-strstr	= 0x801662c8;
-strcasecmp	= 0x8016631c;
-strncasecmp	= 0x8016639c;
-memchr	= 0x801663fc;
-tolower	= 0x80166578;
-toupper	= 0x80166598;
-isalnum	= 0x801665b8;
-isalpha	= 0x801665d0;
-isascii	= 0x801665e8;
-iscntrl	= 0x801665f0;
-isdigit	= 0x80166608;
-isgraph	= 0x80166620;
-islower	= 0x80166638;
-isprint	= 0x80166650;
-ispunct	= 0x80166668;
-isspace	= 0x80166680;
-isupper	= 0x80166698;
-isxdigit	= 0x801666b0;
-toascii	= 0x801666c8;
-_tolower	= 0x801666d0;
-_toupper	= 0x801666d8;
-isnan	= 0x80166718;
-isinf	= 0x80166764;
-strtol	= 0x801667b4;
-strtoul	= 0x801669a4;
+strcat	= 0x801b4dd4;
+strncmp	= 0x801b4e70;
+strncpy	= 0x801b4f48;
+strchr	= 0x801b5018;
+strrchr	= 0x801b50a8;
+strstr	= 0x801b50c8;
+strcasecmp	= 0x801b511c;
+strncasecmp	= 0x801b519c;
+memchr	= 0x801b51fc;
+tolower	= 0x801b5378;
+toupper	= 0x801b5398;
+isalnum	= 0x801b53b8;
+isalpha	= 0x801b53d0;
+isascii	= 0x801b53e8;
+iscntrl	= 0x801b53f0;
+isdigit	= 0x801b5408;
+isgraph	= 0x801b5420;
+islower	= 0x801b5438;
+isprint	= 0x801b5450;
+ispunct	= 0x801b5468;
+isspace	= 0x801b5480;
+isupper	= 0x801b5498;
+isxdigit	= 0x801b54b0;
+toascii	= 0x801b54c8;
+_tolower	= 0x801b54d0;
+_toupper	= 0x801b54d8;
+isnan	= 0x801b5518;
+isinf	= 0x801b5564;
+strtol	= 0x801b55b4;
+strtoul	= 0x801b57a4;
 
-sbrk    = 0x8024198c;	/* TODO: exposing and using sbrk might be dangerous? */
+sbrk    = 0x8028fd20;	/* TODO: exposing and using sbrk might be dangerous? */
 
-malloc	= 0x80241c4c;
-free	= 0x8024285c;
-realloc	= 0x80242920;
-calloc	= 0x80242bd8;
+malloc	= 0x8028ffe0;
+free	= 0x80290bf0;
+realloc	= 0x80290cb4;
+calloc	= 0x80290f6c;
 
-vsnprintf	= 0x8024466c;
-sprintf	= 0x80244720;
-vprintf	= 0x802447c8;
-printf	= 0x80244808;
-snprintf	= 0x80244830;
-vsprintf	= 0x80244850;
-rand	= 0x80244900;
-memcpy	= 0x802449b4;
-memset	= 0x80244be4;
-memcmp	= 0x80244cc4;
-memmove	= 0x80244d28;
-strcpy	= 0x80244df4;
-strcmp	= 0x80244e34;
-strlen	= 0x80244e78;
-atoi	= 0x80244ea0;
-time	= 0x80245148;
-localtime	= 0x80245390;
-vsscanf	= 0x80246764;
-sscanf	= 0x802467a4;
+vsnprintf	= 0x80292a00;
+sprintf	= 0x80292ab4;
+vprintf	= 0x80292b5c;
+printf	= 0x80292b9c;
+snprintf	= 0x80292bc4;
+vsprintf	= 0x80292be4;
+rand	= 0x80292c94;
+memcpy	= 0x80292d48;
+memset	= 0x80292f78;
+memcmp	= 0x80293058;
+memmove	= 0x802930bc;
+strcpy	= 0x80293188;
+strcmp	= 0x802931c8;
+strlen	= 0x8029320c;
+atoi	= 0x80293234;
+time	= 0x802934dc;
+localtime	= 0x80293724;
+vsscanf	= 0x80294af8;
+sscanf	= 0x80294b38;
 
 /* these are actually fs_ variants but ABI is the same */
-open	= 0x8025b78c;
-read	= 0x8025bb84;
-write	= 0x8025bca8;
-lseek	= 0x8025bdc8;
-close	= 0x8025bf08;
+open	= 0x802aa134;
+read	= 0x802aa52c;
+write	= 0x802aa650;
+lseek	= 0x802aa770;
+close	= 0x802aa8b0;
 
-fs_access = 0x8025ba1c;
+fs_access = 0x802aa3c4;
 
-fs_fstat = 0x8025bab4;
-fs_stat  = 0x8025bad8;
-fs_mkdir = 0x8025b8e8;
+fs_fstat = 0x802aa45c;
+fs_stat  = 0x802aa480;
+fs_mkdir = 0x802aa290;
 
-fs_opendir  = 0x8025b85c;
-fs_closedir = 0x8025bf24;
-fs_readdir  = 0x8025be6c;
+fs_opendir  = 0x802aa204;
+fs_closedir = 0x802aa8cc;
+fs_readdir  = 0x802aa814;
 
-fs_sync = 0x8025b664;
+fs_sync = 0x802aa00c;
 
-strdup	= 0x802628c0; /* only needed for vfs it seems */
-fclose	= 0x80262974;
-fflush	= 0x80262ae4; /* actually __fflush but sufficiently close */
-fopen	= 0x80262f58;
-fw_fread = 0x80263138;
-fseeko	= 0x80263280;
-ftell	= 0x802fc2c4;
-ftello	= 0x802639b4;
-fwrite	= 0x80263c60;
-fgets	= 0x80262c40;
+strdup	= 0x802b1268; /* only needed for vfs it seems */
+fclose	= 0x802b131c;
+fflush	= 0x802b148c; /* actually __fflush but sufficiently close */
+fopen	= 0x802b1900;
+fw_fread = 0x802b1abc; /* ali_fread */
+fseeko	= 0x802b1c28;
+ftell	= 0x802b2340; /* ali_ftell */
+ftello	= 0x802b235c;
+fwrite	= 0x802b26d0; /* ali_fwrite */
+fgets	= 0x802b15e8;
 
 /* TDS2 */
-osal_tds2_cache_flush	= 0x800491e8;
-os_disable_interrupt	= 0x802901cc;
-os_enable_interrupt	= 0x802901f4;
+osal_tds2_cache_flush	= 0x80049214;
+os_disable_interrupt	= 0x802deb74;
+os_enable_interrupt	= 0x802deb9c;
 
-dly_tsk	= 0x802beefc;
+dly_tsk	= 0x8030d8a4;
 
-os_get_tick_count = 0x802bf944;
+os_get_tick_count = 0x8030e2ec;
 
 /* drivers */
-get_vp_init_low_lcd_para	= 0x8016fa38;
-switch_lcd_or_tv	= 0x8016fafc;
+get_vp_init_low_lcd_para	= 0x801be3f0;
+switch_lcd_or_tv	= 0x801be4b4;
 
-vpo_ioctl	= 0x80227094;
+vpo_ioctl	= 0x80275278;
 
-osddrv_open	= 0x80227748;
-osddrv_close	= 0x80227828;
-osddrv_3x_create_region	= 0x80227f3c;
-osddrv_3x_region_write	= 0x80228834;
-osddrv_scale	= 0x80228b58;
+osddrv_open	= 0x802760f0;
+osddrv_close	= 0x802761d0;
+osddrv_3x_create_region	= 0x802768e4;
+osddrv_3x_region_write	= 0x802771dc;
+osddrv_scale	= 0x80277500;
 
-dev_get_by_id	= 0x80228e30;
+dev_get_by_id	= 0x802777d8;
 
-st7789v_caset_raset	= 0x8025041c;
-st7789v_ramwr	= 0x802504c0;
+st7789v_caset_raset	= 0x8029edc4;
+st7789v_ramwr	= 0x8029ee68;
 
 /* libretro frontend */
-run_osd_region_write	= 0x8030b58c;
-run_screen_write	= 0x8030b608;
-run_sound_advance	= 0x8030b718;
+run_osd_region_write	= 0x8035ac28;
+run_screen_write	= 0x8035aca4; /* dispFlip */
+run_sound_advance	= 0x8035adb4; /* sound_driver_play */
 
-retro_video_refresh_cb	= 0x8030c960;
-retro_audio_sample_batch_cb	= 0x8030c9e8;
-retro_input_poll_cb	= 0x8030cc20;
-retro_input_state_cb	= 0x8030cd10;
-retro_environment_cb	= 0x8030cd54;
+retro_video_refresh_cb	= 0x8035c1d4; /* DrawFrame */
+retro_audio_sample_batch_cb	= 0x8035c25c; /* PlayFrame */
+retro_input_poll_cb	= 0x8035c4b4; /* joystick_poll */
+retro_input_state_cb	= 0x8035c5a4; /* joystick_input */
+retro_environment_cb	= 0x8035c5e8; /* environment */
 
-run_emulator	= 0x8030d008;
-run_gba			= 0x8030e4bc;
+run_emulator	= 0x8035c89c; /* Load_Proc2 */
+run_gba			= 0x8035de78; /* GpspLoad */
 
 /* .rodata */
 
-_ctype_	= 0x80660d34;
+_ctype_	= 0x809f52fc;
 
 /* .data */
-RAMSIZE	= 0x806f5e84;
+RAMSIZE	= 0x80c591bc;
 
-g_errno	= 0x806f6470;
+g_errno	= 0x80c599a0; /* errno */
 
-g_snd_task_flags	= 0x806f7634;
+g_snd_task_flags	= 0x80c5ab64; /* Soundplayflag */
 
-g_retro_game_info	= 0x80ad8e18;
+g_retro_game_info	= 0x80c5acec; /* game */
 
-gfn_state_load	= 0x806f8fac;
-gfn_state_save	= 0x806f9008;
+gfn_state_load	= 0x80c5ffb8; /* _load_state */
+gfn_state_save	= 0x80c60010; /* _save_state */
 
-gfn_retro_get_region	= 0x806f8fe4;
-gfn_get_system_av_info	= 0x806f8ff4;
-gfn_retro_load_game		= 0x806f9014;
-gfn_retro_unload_game	= 0x806f901c;
-gfn_retro_run	= 0x806f902c;
-gfn_frameskip	= 0x806f9028;
+gfn_retro_get_region	= 0x80c5ffec; /* _retro_get_region */
+gfn_get_system_av_info	= 0x80c5fffc; /* _get_system_av_info */
+gfn_retro_load_game		= 0x80c6001c; /* _retro_load_game */
+gfn_retro_unload_game	= 0x80c60024; /* _retro_deinit */
+gfn_retro_run	= 0x80c60034; /* _retro_run */
+gfn_frameskip	= 0x80c60030; /* _SetFrameSkip */
 
-g_run_file_size	= 0x806f8e9c;
-gp_buf_64m	= 0x806f9020;
+g_run_file_size	= 0x80c5feac;
+gp_buf_64m	= 0x80c60028; /* gp_rom_mem_buffer */
 
 /* HiChip's hardware wired to LCD for UARTless debug.c */
 PINMUXL	= 0xb88004a0;
