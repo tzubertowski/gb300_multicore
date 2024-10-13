@@ -56,9 +56,9 @@ static void frameskip_cb(BOOL flag);
 
 static void dummy_retro_run(void);
 
-static int *fw_fps_counter_enable = 0x806f7698;
-static int *fw_fps_counter = 0x806f7694;
-static char *fw_fps_counter_format = 0x806674a0;	// "%2d/%2d"
+static int *fw_fps_counter_enable = 0x80c5abcc;	// displayfps
+static int *fw_fps_counter = 0x80c5abc8;
+static char *fw_fps_counter_format = 0x809fb9ec;	// "%2d/%2d"
 static void fps_counter_enable(bool enable);
 
 
