@@ -30,6 +30,8 @@ make clean CONSOLE=pce        CORE=cores/libretro-beetle-pce-fast && \
 make clean CONSOLE=ngpc       CORE=cores/RACE && \
 make clean CONSOLE=gba        CORE=cores/gpsp && \
 make clean CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB && \
+make clean CONSOLE=dblcherrygb  CORE=more-cores/libretro-doublecherryGB && \
+make clean CONSOLE=m2kn       CORE=more-cores/libretro-mamenummacwaytausend && \
 make clean CONSOLE=gbb        CORE=cores/libretro-gambatte && \
 make clean CONSOLE=gbgb       CORE=cores/Gearboy/platforms/libretro && \
 make clean CONSOLE=gb         CORE=cores/libretro-tgbdual && \

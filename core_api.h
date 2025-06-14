@@ -32,4 +32,12 @@ struct retro_core_t
 
 typedef struct retro_core_t *(*core_entry_t)(void);
 
+#ifdef DBLCHERRY_SAVE
+//Custom functions manually added do doublecherry's libretro.h
+//It's hacky, but is the best we can do for now ...
+int retro_dblchry_emulated_count();
+size_t retro_dblchry_get_sram_size(int slot);
+void *retro_dblchry_get_sram_ptr(int slot);
+#endif
+
 #endif

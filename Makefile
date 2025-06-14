@@ -31,6 +31,12 @@ endif
 ifeq ($(DEBUG_XLOG), 1)
 CFLAGS += -DDEBUG_XLOG=1
 endif
+ifeq ($(CONSOLE), dblcherrygb)
+CFLAGS += -DDBLCHERRY_SAVE
+CORE_OBJS=core_api_dbl_chr.o 
+else
+CORE_OBJS=core_api.o 
+endif
 
 LDFLAGS := -EL -nostdlib -z max-page-size=32
 LDFLAGS += --gc-sections
@@ -41,7 +47,7 @@ CXX_LDFLAGS := -EL -march=mips32 -mtune=mips32 -msoft-float
 CXX_LDFLAGS += -Wl,--gc-sections --static
 CXX_LDFLAGS += -z max-page-size=32
 
-CORE_OBJS=core_api.o lib.o debug.o video_sf2000.o
+CORE_OBJS += lib.o debug.o video_sf2000.o
 LOADER_OBJS=init.o main.o debug.o
 
 # CORE=cores/cannonball
@@ -92,8 +98,8 @@ LOADER_OBJS=init.o main.o debug.o
 # CORE=cores/tgbdual
 # CONSOLE=gb
 
-#CORE=cores/gpsp
-#CONSOLE=gba
+# CORE=cores/gpsp
+# CONSOLE=gba
 
 # CORE=cores/snes9x2005
 # CONSOLE=snes
@@ -109,6 +115,9 @@ endif
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 %.o: %.s
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+core_api_dbl_chr.o: core_api.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 libretro_core:

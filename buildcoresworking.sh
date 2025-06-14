@@ -55,10 +55,12 @@
 # make CONSOLE=pce        CORE=cores/libretro-beetle-pce-fast
 # echo "-- ngpc make --"
 # make CONSOLE=ngpc       CORE=cores/RACE
-echo "-- gba make --"
-make CONSOLE=gba        CORE=cores/gpsp
+# echo "-- gba make --"
+# make CONSOLE=gba        CORE=cores/gpsp
 # echo "-- dblcherryGB make --"
-# make CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB
+# make CONSOLE=dblcherrygb  CORE=more-cores/libretro-doublecherryGB
+# echo "-- libretro-mamenummacwaytausend make --"
+# make CONSOLE=m2kn       CORE=more-cores/libretro-mamenummacwaytausend
 # echo "-- gb make --"
 # make CONSOLE=gb        CORE=cores/libretro-gambatte
 # echo "-- gbgb make --"

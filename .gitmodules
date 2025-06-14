@@ -9,3 +9,9 @@
 [submodule "assets/coreconfig"]
 	path = assets/coreconfig
 	url = git@github.com:tzubertowski/sf2000_gb300_multicore_core_config.git
+[submodule "more-cores/libretro-doublecherryGB"]
+	path = more-cores/libretro-doublecherryGB
+	url = https://github.com/leonardothehuman/libretro-doublecherryGB.git
+[submodule "more-cores/libretro-mamenummacwaytausend"]
+	path = more-cores/libretro-mamenummacwaytausend
+	url = https://github.com/nummacway/libretro-mamenummacwaytausend.git

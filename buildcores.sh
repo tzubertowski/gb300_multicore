@@ -29,7 +29,8 @@ make CONSOLE=gme        CORE=cores/libretro-gme && \
 make CONSOLE=pce        CORE=cores/libretro-beetle-pce-fast && \
 make CONSOLE=ngpc       CORE=cores/RACE && \
 make CONSOLE=gba        CORE=cores/gpsp && \
-make CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB && \
+make CONSOLE=dblcherrygb  CORE=more-cores/libretro-doublecherryGB && \
+make CONSOLE=m2kn       CORE=more-cores/libretro-mamenummacwaytausend && \
 make CONSOLE=gbb        CORE=cores/libretro-gambatte && \
 make CONSOLE=gbgb       CORE=cores/Gearboy/platforms/libretro && \
 make CONSOLE=gb         CORE=cores/libretro-tgbdual && \
