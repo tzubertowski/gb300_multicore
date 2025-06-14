@@ -72,7 +72,7 @@ void load_and_run_core(const char *file_path, int load_state)
 
 	// this will show a loading screen when loading a rom.
 	// it will act as an indicator that a custom core and not a stock emulator is running.
-	dbg_show_noblock(0x7800,"\n MULTICORE\n\n %s\n\n %s \n\n ", corename, filename); // red
+	dbg_show_noblock(0x00,"\n MULTICORE\n\n %s\n\n %s \n\n ", corename, filename); // black
 
 	void *core_load_addr = (void*)0x87000000;
 
