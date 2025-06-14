@@ -107,11 +107,11 @@ To ssh into the container
 - choose a directory to contain all this
 - decide if you want EVERYTHING (there are a lot of cores!)
     - YES, I want ALL the cores!
-        - `git clone --recurse-submodules --shallow-submodules https://github.com/madcock/sf2000_multicore`
+        - `git clone --recurse-submodules --shallow-submodules https://github.com/tzubertowski/gb300_multicore --branch task/gb300-v2-multicore`
         - wait for a long while
     - NO, I want to select individual cores
-        - `git clone https://github.com/madcock/sf2000_multicore`
-        - `cd sf2000_multicore/libs/libretro-common`
+        - `git clone https://github.com/tzubertowski/gb300_multicore --branch task/gb300-v2-multicore`
+        - `cd gb300_multicore/libs/libretro-common`
         - `git submodule update --init .`
         - `cd ../..`
         - choose a core to grab, for example, picodrive
@@ -121,8 +121,8 @@ To ssh into the container
     - Note: libretro-mrboom takes a very long time to receive, even with `--shallow-submodules`, so I guess be patient!
 - from the top level of this repo, install the compiler tools
     - `./install-toolchain.sh`
-- copy the 08/03/2023 (official release 1.6) file
-    - `cp <YOUR_1.6_BISRV.ASD> bisrv_08_03.asd`
+- copy the gb300 v2 bisrv file
+    - `cp assets/os/bisrv.asd bisrv_08_03.asd`
  
 ## Building
 If setup properly, there are a few ways to build.
