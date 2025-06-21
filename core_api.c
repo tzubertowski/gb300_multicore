@@ -92,18 +92,32 @@ struct retro_core_t core_exports = {
    .retro_get_memory_size = retro_get_memory_size,
 };
 
+// Make a directory if it doesn't exist
+int create_dir(const char *path) {
+	if (fs_access(path, 0) != 0) {
+		xlog("filepath: creating %s\n", path);
+        fs_mkdir(path, 0755);
+    }
+}
+
 void build_srm_filepath(char *filepath, size_t size, const char *game_filepath, const char *extension, size_t extension_size) {
 	char basename[MAXPATH];
+	char directory[MAXPATH] = SAVE_DIRECTORY;
 	fill_pathname_base(basename, game_filepath, sizeof(basename));
 	path_remove_extension(basename);
+	create_dir(directory); // Make sure SAVE_DIRECTORY exists 
+
 	if(g_per_core_srm){
 		struct retro_system_info sysinfo;
 		retro_get_system_info(&sysinfo);
-		snprintf(filepath, size, "%s/%s/%s.%s", SAVE_DIRECTORY, sysinfo.library_name, basename, extension);
-	} else {
-		snprintf(filepath, size, "%s/%s.%s", SAVE_DIRECTORY, basename, extension);
+		snprintf(directory, size, "%s/%s", SAVE_DIRECTORY, sysinfo.library_name);
+		create_dir(directory);	// Make sure SAVE_DIRECTORY/sysinfo.library_name exists 
 	}
+
+	snprintf(filepath, size, "%s/%s.%s", directory, basename, extension);
+	xlog("srm_filepath: %s\n", SAVE_DIRECTORY);
 }
+
 #ifdef DBLCHERRY_SAVE
 void save_srm(const char slot){
 	int count = retro_dblchry_emulated_count();
@@ -531,13 +545,29 @@ char build_state_filepath(char *state_filepath, size_t size, const char *game_fi
 	char save_slot = frontend_state_filepath[strlen(frontend_state_filepath) - 1];
 
 	char basename[MAXPATH];
+	char directory[MAXPATH];
+	char frontend_state_directory[MAXPATH];
 	fill_pathname_base(basename, game_filepath, sizeof(basename));
 	path_remove_extension(basename);
+	strcpy(frontend_state_directory, frontend_state_filepath);
+	char *last_slash = strrchr(frontend_state_directory, '/');
+	*last_slash = '\0';
+	xlog("frontend_state_directory: %s\n", frontend_state_directory);
+	xlog("frontend_state_filepath: %s\n", frontend_state_filepath);
+	create_dir(frontend_state_directory); // Make sure frontend_state_filepath directory exists
+	create_dir(SAVE_DIRECTORY); // Make sure SAVE_DIRECTORY exists
 	if(g_per_core_srm){
-	snprintf(state_filepath, size, "%s/%s/%s.state%c", SAVE_DIRECTORY, sysinfo.library_name, basename, save_slot);
+		snprintf(directory, size, "%s/%s", SAVE_DIRECTORY, sysinfo.library_name);
+		create_dir(directory); // Make sure SAVE_DIRECTORY/sysinfo.library_name exists
 	} else {
-	snprintf(state_filepath, size, "%s/savestates/%s/%s.state%c", SAVE_DIRECTORY, sysinfo.library_name, basename, save_slot);
+		snprintf(directory, size, "%s/savestates", SAVE_DIRECTORY);
+		create_dir(directory); // Make sure SAVE_DIRECTORY/savestates exists
+		strcat(directory, "/");
+		strcat(directory, sysinfo.library_name);
+		create_dir(directory); // Make sure SAVE_DIRECTORY/savestates/sysinfo.library_name exists
 	}
+	snprintf(state_filepath, size, "%s/%s.state%c", directory, basename, save_slot);
+	xlog("state_filepath: %s\n", state_filepath);
 	return save_slot;
 }
 
