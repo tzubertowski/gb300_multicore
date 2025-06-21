@@ -79,6 +79,8 @@ gfn_frameskip	= 0x80c60030;
 g_run_file_size	= 0x80c5feac;
 gp_buf_64m	= 0x80c60028;
 
+g_joy_task_state = 0x80c5ffac; /* actually g_joy_key_wired */
+
 /* HiChip's hardware wired to LCD for UARTless debug.c */
 PINMUXL	= 0xb88004a0;
 PINMUXT	= 0xb8800500;

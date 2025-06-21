@@ -35,6 +35,7 @@ static bool wrap_retro_load_game(const struct retro_game_info* info);
 static void wrap_retro_init(void);
 static void wrap_retro_deinit(void);
 static void wrap_retro_unload_game(void);
+static void wrap_retro_run(void);
 
 static void log_cb(enum retro_log_level level, const char *fmt, ...);
 
@@ -58,11 +59,12 @@ static bool g_per_core_srm = false;
 
 static void dummy_retro_run(void);
 
-static int *fw_fps_counter_enable = 0x80c5abcc;	// displayfps
-static int *fw_fps_counter = 0x80c5abc8;
-static char *fw_fps_counter_format = 0x809fb9ec;	// "%2d/%2d"
+static int *fw_fps_counter_enable = (int *)0x80c5abcc;	// displayfps
+static int *fw_fps_counter = (int *)0x80c5abc8;
+static char *fw_fps_counter_format = (char *)0x809fb9ec;	// "%2d/%2d"
 static void fps_counter_enable(bool enable);
 
+static bool gb_temporary_osd = false;
 
 struct retro_core_t core_exports = {
    .retro_init = wrap_retro_init,
@@ -78,7 +80,7 @@ struct retro_core_t core_exports = {
    .retro_set_input_state = retro_set_input_state,
    .retro_set_controller_port_device = retro_set_controller_port_device,
    .retro_reset = retro_reset,
-   .retro_run = retro_run,
+   .retro_run = wrap_retro_run,
    .retro_serialize_size = retro_serialize_size,
    .retro_serialize = retro_serialize,
    .retro_unserialize = retro_unserialize,
@@ -229,6 +231,30 @@ void load_srm(const char slot){
 	fclose(ram_file);
 }
 #endif
+
+static uint32_t g_osd_time = 0;
+
+void wrap_retro_run(void) {
+	// Disable the osd message after 2 seconds
+	if (gb_temporary_osd) {
+		if (os_get_tick_count() - g_osd_time > 1000) {
+			if (!g_show_fps) *fw_fps_counter_enable = 0;
+			gb_temporary_osd = false;
+		}
+	} else if ( // Do not use retro_input_state_cb to avoid key remapping issues
+		g_joy_task_state == 0x9008) { // Enabled by pressing L + R + Start
+		save_srm(0);
+
+		// Show osd message
+		gb_temporary_osd = true;
+		if (!g_show_fps) *fw_fps_counter_enable = 1;
+		sprintf(fw_fps_counter_format, "Saved");
+		g_osd_time = os_get_tick_count();
+	}
+
+	retro_run();
+}
+
 void wrap_retro_unload_game(void){
 	save_srm(0);
 	retro_unload_game();
