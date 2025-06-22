@@ -13,6 +13,13 @@
 #include "stockfw.h"
 #include "video_sf2000.h"
 
+// Hotkeys
+#define HOTKEYSAVESRM 0x9008 // press L + R + Start
+#define HOTKEYSAVESTATE 0x9400 // press L + R + X
+#define HOTKEYLOADSTATE 0x9800 // press L + R + Y
+#define HOTKEYINCREASESTATE 0x9020 // press L + R + Right
+#define HOTKEYDECREASESTATE 0x9080 // press L + R + LEFT
+
 #define MAXPATH 	255
 #define SYSTEM_DIRECTORY	"/mnt/sda1/bios"
 #define SAVE_DIRECTORY		"/mnt/sda1/saves"
@@ -56,6 +63,10 @@ static bool g_show_fps = false;
 static void frameskip_cb(BOOL flag);
 static bool g_per_state_srm = false;
 static bool g_per_core_srm = false;
+static bool g_enable_savestate_hotkeys = true;
+static bool g_enable_save_srm_hotkey = true;
+static bool g_enable_osd = true;
+static bool g_osd_small_messages = false;
 
 static void dummy_retro_run(void);
 
@@ -121,7 +132,6 @@ void build_srm_filepath(char *filepath, size_t size, const char *game_filepath, 
 	}
 
 	snprintf(filepath, size, "%s/%s.%s", directory, basename, extension);
-	xlog("srm_filepath: %s\n", SAVE_DIRECTORY);
 }
 
 #ifdef DBLCHERRY_SAVE
@@ -237,6 +247,19 @@ void load_srm(const char slot){
 #endif
 
 static uint32_t g_osd_time = 0;
+static uint32_t slot_delay_time = 0;
+static int slot_state = 0;
+char osd_message[MAXPATH];
+
+// Show osd message
+int show_osd_message(const char *message) {
+	if (g_enable_osd) {
+		gb_temporary_osd = true;
+		if (!g_show_fps) *fw_fps_counter_enable = 1;
+		sprintf(fw_fps_counter_format, message);
+		g_osd_time = os_get_tick_count();
+	}
+}
 
 void wrap_retro_run(void) {
 	// Disable the osd message after 2 seconds
@@ -245,17 +268,38 @@ void wrap_retro_run(void) {
 			if (!g_show_fps) *fw_fps_counter_enable = 0;
 			gb_temporary_osd = false;
 		}
-	} else if ( // Do not use retro_input_state_cb to avoid key remapping issues
-		g_joy_task_state == 0x9008) { // Enabled by pressing L + R + Start
+	// Do not use retro_input_state_cb to avoid key remapping issues
+	} else if ((g_joy_task_state == HOTKEYSAVESRM) && (g_enable_save_srm_hotkey)) { 	
 		save_srm(0);
-
-		// Show osd message
-		gb_temporary_osd = true;
-		if (!g_show_fps) *fw_fps_counter_enable = 1;
-		sprintf(fw_fps_counter_format, "Saved");
-		g_osd_time = os_get_tick_count();
+		g_osd_small_messages ? sprintf(osd_message, "S:SRM") : sprintf(osd_message, "Save: SRM");
+		show_osd_message(osd_message);
+	} else if ((g_joy_task_state == HOTKEYSAVESTATE) && (g_enable_savestate_hotkeys)) {
+		state_save("");
+		g_osd_small_messages ? sprintf(osd_message, "S:%d", slot_state) : sprintf(osd_message, "Save: %d", slot_state);
+		show_osd_message(osd_message);
+	} else if ((g_joy_task_state == HOTKEYLOADSTATE) && (g_enable_savestate_hotkeys)) { 	
+		state_load("");
+		g_osd_small_messages ? sprintf(osd_message, "L:%d", slot_state) : sprintf(osd_message, "Load: %d", slot_state);
+		show_osd_message(osd_message);
 	}
-
+	if (((g_joy_task_state == HOTKEYINCREASESTATE || g_joy_task_state == HOTKEYDECREASESTATE) && (os_get_tick_count() - slot_delay_time > 100)) && (g_enable_savestate_hotkeys)) { // Delay so it isn't too fast 
+		if (g_joy_task_state == HOTKEYINCREASESTATE) { 	
+			if (slot_state < 9) {
+				slot_state += 1;
+			} else {
+				slot_state = 0;
+			}
+		} else if (g_joy_task_state == HOTKEYDECREASESTATE) { 	
+			if (slot_state > 0) {
+				slot_state -= 1;
+			} else {
+				slot_state = 9;
+			}
+		}
+		g_osd_small_messages ? sprintf(osd_message, "SLT:%d", slot_state) : sprintf(osd_message, "Slot: %d", slot_state);
+		show_osd_message(osd_message);
+		slot_delay_time = os_get_tick_count();
+	}
 	retro_run();
 }
 
@@ -420,6 +464,12 @@ bool wrap_retro_load_game(const struct retro_game_info* info)
 		// per state srm?
 		config_get_bool(s_core_config, "sf2000_per_state_srm", &g_per_state_srm);
 
+		// Hotkey settings
+		config_get_bool(s_core_config, "sf2000_enable_savestate_hotkeys", &g_enable_savestate_hotkeys);
+		config_get_bool(s_core_config, "sf2000_enable_save_srm_hotkey", &g_enable_save_srm_hotkey);
+		config_get_bool(s_core_config, "sf2000_enable_osd", &g_enable_osd);
+		config_get_bool(s_core_config, "sf2000_osd_small_messages", &g_osd_small_messages);
+
 		// per core srm?
 		config_get_bool(s_core_config, "sf2000_per_core_srm", &g_per_core_srm);
 		
@@ -574,17 +624,20 @@ char build_state_filepath(char *state_filepath, size_t size, const char *game_fi
 	// last char is the save slot number
 	char save_slot = frontend_state_filepath[strlen(frontend_state_filepath) - 1];
 
+	if (strlen(frontend_state_filepath) == 0) save_slot = slot_state + '0'; //To convert integer to char only 0 to 9 will be converted. 
+
+	if (strlen(frontend_state_filepath) != 0) { 
+		char frontend_state_directory[MAXPATH];
+		strcpy(frontend_state_directory, frontend_state_filepath);
+		char *last_slash = strrchr(frontend_state_directory, '/');
+		*last_slash = '\0';
+		create_dir(frontend_state_directory); // Make sure frontend_state_filepath directory exists
+	}
+
 	char basename[MAXPATH];
 	char directory[MAXPATH];
-	char frontend_state_directory[MAXPATH];
 	fill_pathname_base(basename, game_filepath, sizeof(basename));
 	path_remove_extension(basename);
-	strcpy(frontend_state_directory, frontend_state_filepath);
-	char *last_slash = strrchr(frontend_state_directory, '/');
-	*last_slash = '\0';
-	xlog("frontend_state_directory: %s\n", frontend_state_directory);
-	xlog("frontend_state_filepath: %s\n", frontend_state_filepath);
-	create_dir(frontend_state_directory); // Make sure frontend_state_filepath directory exists
 	create_dir(SAVE_DIRECTORY); // Make sure SAVE_DIRECTORY exists
 	if(g_per_core_srm){
 		snprintf(directory, size, "%s/%s", SAVE_DIRECTORY, sysinfo.library_name);
@@ -597,7 +650,6 @@ char build_state_filepath(char *state_filepath, size_t size, const char *game_fi
 		create_dir(directory); // Make sure SAVE_DIRECTORY/savestates/sysinfo.library_name exists
 	}
 	snprintf(state_filepath, size, "%s/%s.state%c", directory, basename, save_slot);
-	xlog("state_filepath: %s\n", state_filepath);
 	return save_slot;
 }
 
