@@ -59,8 +59,8 @@ echo "-- gba make --"
 make CONSOLE=gba        CORE=cores/gpsp
 # echo "-- dblcherryGB make --"
 # make CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB
-# echo "-- gb make --"
-# make CONSOLE=gb        CORE=cores/libretro-gambatte
+echo "-- gb make --"
+make CONSOLE=gb        CORE=cores/libretro-gambatte
 # echo "-- gbgb make --"
 # make CONSOLE=gbgb       CORE=cores/Gearboy/platforms/libretro
 # echo "-- gbb make --"
@@ -112,9 +112,9 @@ make CONSOLE=gba        CORE=cores/gpsp
 # echo "-- c64 make --"
 # make clean CONSOLE=c64     CORE=cores/libretro-vice EMUTYPE=x64
 # echo "-- c64f make --"
-# make clean CONSOLE=c64f  CORE=cores/libretro-frodo EMUTYPE=frodo
+# make clean CONSOLE=c64f  CORE=cores/libretro-frodo platform=sf2000 EMUTYPE=frodo
 # echo "-- c64f make --"
-# make CONSOLE=c64f        CORE=cores/libretro-frodo EMUTYPE=frodo
+# make CONSOLE=c64f        CORE=cores/libretro-frodo platform=sf2000 EMUTYPE=frodo
 # echo "-- c64f make --"
 # make clean CONSOLE=c64f  CORE=cores/libretro-frodo EMUTYPE=frodo
 # echo "-- c64fc make --"
@@ -180,6 +180,7 @@ make CONSOLE=gba        CORE=cores/gpsp
 #make CONSOLE=tennis     CORE=cores/retro-tennis
 #
 
+make CONSOLE=js2000        CORE=cores/js2000 && \
 
 # make updatelogo ALPHARELEASE=0.10
 true

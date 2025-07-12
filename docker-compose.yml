@@ -2,7 +2,7 @@ version: '3.8'
 services:
   compiler-server:
     build: .
-    container_name: compiler-server
+    container_name: v3-compiler-server
     command: tail -f /dev/null
     volumes:
     - ./:/app
