@@ -55,10 +55,9 @@ static bool g_show_fps = false;
 static void frameskip_cb(BOOL flag);
 
 static void dummy_retro_run(void);
-
-static int *fw_fps_counter_enable = 0x806f7698;
-static int *fw_fps_counter = 0x806f7694;
-static char *fw_fps_counter_format = 0x806674a0;	// "%2d/%2d"
+static int *fw_fps_counter_enable = 0x80c5abcc;	// displayfps
+static int *fw_fps_counter = 0x80c5abc8;
+static char *fw_fps_counter_format = 0x809fb9ec;	// "%2d/%2d"
 static void fps_counter_enable(bool enable);
 
 
@@ -650,6 +649,7 @@ static void dummy_retro_run(void)
 
 static void fps_counter_enable(bool enable)
 {
+	xlog("FPS counter enable: %d\n", enable);
 	if (enable)
 	{
 		*fw_fps_counter_enable = 1;
@@ -685,6 +685,7 @@ void wrap_video_refresh_cb(const void *data, unsigned width, unsigned height, si
 		// fps_counter2 = count_all / sec;
 
 		sprintf(fw_fps_counter_format, "%2d/%2d", count_not_skipped, count_all);
+		*fw_fps_counter = count_not_skipped;
 
 		prev_msec = curr_msec;
 		count_all = 0;
