@@ -64,6 +64,10 @@ static int *fw_fps_counter = (int *)0x80c5abc8;
 static char *fw_fps_counter_format = (char *)0x809fb9ec;	// "%2d/%2d"
 static void fps_counter_enable(bool enable);
 
+// Forward declarations to fix implicit declaration warnings
+void build_game_config_filepath(char *filepath, size_t size, const char *game_filepath, const char *library_name);
+void config_add_file(const char *filepath);
+
 static bool gb_temporary_osd = false;
 
 struct retro_core_t core_exports = {
@@ -654,7 +658,7 @@ int state_save(const char *frontend_state_filepath)
 	return 1;
 }
 
-void build_game_config_filepath(char *filepath, size_t size, const char *game_filepath, char library_name)
+void build_game_config_filepath(char *filepath, size_t size, const char *game_filepath, const char *library_name)
 {
 	char basename[MAXPATH];
 	fill_pathname_base(basename, game_filepath, sizeof(basename));
