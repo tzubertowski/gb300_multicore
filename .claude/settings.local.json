@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(ls:*)",
+      "Bash(cp:*)",
+      "Bash(chmod:*)",
+      "Bash(make:*)",
+      "Bash(./buildcoresworking.sh:*)",
+      "Bash(cmp:*)"
+    ],
+    "deny": []
+  }
+}
