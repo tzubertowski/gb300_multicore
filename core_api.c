@@ -255,7 +255,7 @@ char osd_message[MAXPATH];
 int show_osd_message(const char *message) {
 	if (g_enable_osd) {
 		gb_temporary_osd = true;
-		if (!g_show_fps) *fw_fps_counter_enable = 1;
+		if (!g_show_fps) *fw_fps_counter_enable = 1; // Don't change fps if fps is enabled
 		sprintf(fw_fps_counter_format, message);
 		g_osd_time = os_get_tick_count();
 	}
@@ -265,42 +265,53 @@ void wrap_retro_run(void) {
 	// Disable the osd message after 2 seconds
 	if (gb_temporary_osd) {
 		if (os_get_tick_count() - g_osd_time > 1000) {
-			if (!g_show_fps) *fw_fps_counter_enable = 0;
+			if (!g_show_fps) *fw_fps_counter_enable = 0; // Don't change fps if fps is enabled
 			gb_temporary_osd = false;
 		}
+	}
+
 	// Do not use retro_input_state_cb to avoid key remapping issues
-	} else if ((g_joy_task_state == HOTKEYSAVESRM) && (g_enable_save_srm_hotkey)) { 	
-		save_srm(0);
-		g_osd_small_messages ? sprintf(osd_message, "S:SRM") : sprintf(osd_message, "Save: SRM");
-		show_osd_message(osd_message);
-	} else if ((g_joy_task_state == HOTKEYSAVESTATE) && (g_enable_savestate_hotkeys)) {
-		state_save("");
-		g_osd_small_messages ? sprintf(osd_message, "S:%d", slot_state) : sprintf(osd_message, "Save: %d", slot_state);
-		show_osd_message(osd_message);
-	} else if ((g_joy_task_state == HOTKEYLOADSTATE) && (g_enable_savestate_hotkeys)) { 	
-		state_load("");
-		g_osd_small_messages ? sprintf(osd_message, "L:%d", slot_state) : sprintf(osd_message, "Load: %d", slot_state);
-		show_osd_message(osd_message);
-	}
-	if (((g_joy_task_state == HOTKEYINCREASESTATE || g_joy_task_state == HOTKEYDECREASESTATE) && (os_get_tick_count() - slot_delay_time > 100)) && (g_enable_savestate_hotkeys)) { // Delay so it isn't too fast 
-		if (g_joy_task_state == HOTKEYINCREASESTATE) { 	
-			if (slot_state < 9) {
-				slot_state += 1;
-			} else {
-				slot_state = 0;
+	if (g_joy_task_state == HOTKEYSAVESRM || g_joy_task_state == HOTKEYSAVESTATE || g_joy_task_state == HOTKEYLOADSTATE 
+		|| g_joy_task_state == HOTKEYINCREASESTATE || g_joy_task_state == HOTKEYDECREASESTATE) {
+		g_joy_state = 0; //Reset g_joy_state to avoid button presses
+		if ((g_joy_task_state == HOTKEYSAVESRM || g_joy_task_state == HOTKEYSAVESTATE || g_joy_task_state == HOTKEYLOADSTATE)
+    		&& (os_get_tick_count() - g_osd_time > 1000)) { // Use osd delay to prevent spamming hotkeys
+			if ((g_joy_task_state == HOTKEYSAVESRM) && (g_enable_save_srm_hotkey)) { // Save SRM Hotkey
+				save_srm(0);
+				g_osd_small_messages ? sprintf(osd_message, "S:SRM") : sprintf(osd_message, "Save: SRM");
+			} else if ((g_joy_task_state == HOTKEYSAVESTATE) && (g_enable_savestate_hotkeys)) { // Save SRM state
+				state_save("");
+				g_osd_small_messages ? sprintf(osd_message, "S:%d", slot_state) : sprintf(osd_message, "Save: %d", slot_state);
+			} else if ((g_joy_task_state == HOTKEYLOADSTATE) && (g_enable_savestate_hotkeys)) { // Load SRM state
+				state_load("");
+				g_osd_small_messages ? sprintf(osd_message, "L:%d", slot_state) : sprintf(osd_message, "Load: %d", slot_state);
 			}
-		} else if (g_joy_task_state == HOTKEYDECREASESTATE) { 	
-			if (slot_state > 0) {
-				slot_state -= 1;
-			} else {
-				slot_state = 9;
-			}
+			show_osd_message(osd_message);
 		}
-		g_osd_small_messages ? sprintf(osd_message, "SLT:%d", slot_state) : sprintf(osd_message, "Slot: %d", slot_state);
-		show_osd_message(osd_message);
-		slot_delay_time = os_get_tick_count();
+
+		if (((g_joy_task_state == HOTKEYINCREASESTATE || g_joy_task_state == HOTKEYDECREASESTATE)  // Increase or Decrease state
+    	&& (os_get_tick_count() - slot_delay_time > 100))  // Delay so it isn't too fast
+    	&& g_enable_savestate_hotkeys) { // Hotkey setting enabled
+			if (g_joy_task_state == HOTKEYINCREASESTATE) { 	
+				if (slot_state < 9) {
+					slot_state += 1;
+				} else {
+					slot_state = 0;
+				}
+			} else if (g_joy_task_state == HOTKEYDECREASESTATE) { 	
+				if (slot_state > 0) {
+					slot_state -= 1;
+				} else {
+					slot_state = 9;
+				}
+			}
+			g_osd_small_messages ? sprintf(osd_message, "SLT:%d", slot_state) : sprintf(osd_message, "Slot: %d", slot_state);
+			show_osd_message(osd_message);
+			slot_delay_time = os_get_tick_count();
+		}
 	}
-	retro_run();
+
+	retro_run(); 
 }
 
 void wrap_retro_unload_game(void){

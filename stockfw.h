@@ -76,5 +76,6 @@ extern const unsigned g_run_file_size;
 extern void * gp_buf_64m;
 
 extern uint32_t g_joy_task_state;
+extern uint32_t g_joy_state;
 
 #endif
