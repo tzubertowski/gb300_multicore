@@ -40,10 +40,10 @@ Highlighted cores are updated/recommended for the device.
 - gme
 - pce (beetle-pce)
 - ngpc (RACE)
-- **gba** (GPSP running with dynarec, working saves, rtc, fast forward)
+- ✅ **gba** (GPSP running with dynarec, working saves, rtc, fast forward)
 - gbb (tgbdual)
 - gbgb (gearboy)
-- **gb** (gambatte, working saves, rtc, fast forward, colour palletes)
+- ✅ **gb** (gambatte, working saves, rtc, fast forward, colour palletes)
 - nes (fceumm)
 - nesq (QuickNES)
 - pokem (PokeMini)
@@ -63,7 +63,7 @@ Highlighted cores are updated/recommended for the device.
 - c64 (vice)
 - **c64f**
 - vic20 (xvic)
-- **fake08** (most games fully playable with sound, even more with frameskip)
+- ✅ **fake08** (most games fully playable with sound, even more with frameskip)
 - lowres-nx
 - jnb
 - cavestory (port)
@@ -78,7 +78,7 @@ Highlighted cores are updated/recommended for the device.
 - gpgx (Genesis-Plus-GX)
 - xmil
 - quake (port)
-- **tyrquake**
+- ✅ **tyrquake**
 - dblcherrygb (doublecherryGB)
 - geolith
 
