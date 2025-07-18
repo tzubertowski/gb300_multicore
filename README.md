@@ -12,6 +12,8 @@ Please see the detailed [detailed How to setup GB300 guide](https://retromods.pl
 Multicore otherwise works the same as it does on SF2000, so you can reference the [source](https://github.com/madcock/sf2000_multicore).
 
 ## Cores in this release
+Highlighted cores are updated/recommended for the device.
+
 - amstradb (cap32)
 - m2k (mame2000)
 - a26 (stella2014)
@@ -38,10 +40,10 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - gme
 - pce (beetle-pce)
 - ngpc (RACE)
-- gba (GPSP running with dynarec, working saves)
+- **gba** (GPSP running with dynarec, working saves, rtc, fast forward)
 - gbb (tgbdual)
 - gbgb (gearboy)
-- gb (gambatte)
+- **gb** (gambatte, working saves, rtc, fast forward, colour palletes)
 - nes (fceumm)
 - nesq (QuickNES)
 - pokem (PokeMini)
@@ -59,8 +61,9 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - lnxb (beetle-lynx)
 - c64sc (vice)
 - c64 (vice)
+- **c64f**
 - vic20 (xvic)
-- fake08
+- **fake08** (most games fully playable with sound, even more with frameskip)
 - lowres-nx
 - jnb
 - cavestory (port)
@@ -75,6 +78,7 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - gpgx (Genesis-Plus-GX)
 - xmil
 - quake (port)
+- **tyrquake**
 - dblcherrygb (doublecherryGB)
 - geolith
 
