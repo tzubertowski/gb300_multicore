@@ -132,7 +132,7 @@ void load_keymap(const char *s_game_filepath)
 	path_remove_extension(basename);
 
 	// Rom keymap
-	snprintf(kmp_filepath, sizeof(kmp_filepath), "%s/%s/keymaps/%s.opt", CONFIG_DIRECTORY, sysinfo.library_name, basename);
+	snprintf(kmp_filepath, sizeof(kmp_filepath), "%s/%s/keymaps/%s.kmp", CONFIG_DIRECTORY, sysinfo.library_name, basename);
 	xlog("Checking keymap in %s...\n", kmp_filepath);
 
 	// if ROM keymap doesn't exist load Core keymap
