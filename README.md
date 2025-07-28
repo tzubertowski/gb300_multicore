@@ -1,6 +1,5 @@
 ![GB300 Multicore](https://github.com/tzubertowski/gb300_multicore/blob/master/assets/images/logo-simple.png?raw=true)
 
-
 # GB300 Multicore - port of multicore from SF2000
 This repo is a fork of original work done for [Multicore for SF2000](https://github.com/madcock/sf2000_multicore) handheld. All credits go to those folks working on the multicore. 
 
@@ -10,6 +9,59 @@ This fork especially would not be here if it was not for the amazing work of [Os
 Please see the detailed [detailed How to setup GB300 guide](https://retromods.pl/blog/gb300-setup/)
 
 Multicore otherwise works the same as it does on SF2000, so you can reference the [source](https://github.com/madcock/sf2000_multicore).
+
+---
+
+## 🎮 Modified Emulator Cores
+
+Several emulator cores have been significantly enhanced in this release to better suit the GB300 hardware. Below is a summary of the key improvements:
+
+### ✅ GBA - GPSP (`roms/gba`)
+- Vastly improved performance – most games now run at 60 FPS without frameskip.
+- Fast forward: `SELECT + R`
+- Slow motion: `SELECT + L`
+- RTC (real-time clock) support – configurable via `js2000` configuration script.
+
+### ✅ GB / GBC - Gambatte (`roms/gb`)
+- Major performance improvements.
+- Fast forward: `SELECT + A`
+- Slow motion: `SELECT + Left D-Pad`
+- Rewind support: hold `SELECT + B`
+- Frame blending supported.
+- RTC support – configurable via `js2000` script.
+- Colour palette customization via `js2000 Gambatte Palette Switcher`.
+
+### ✅ NES - QuickNES (`roms/nesq`)
+- Lightweight and fast.
+- Fast forward and slow motion supported.
+- Rewind support.
+- Better performance than FCEUmm.
+
+### ✅ PICO-8 - Fake08 (`roms/fake08`)
+- Vastly improved framerate.
+- Sound support added.
+- Frameskip enabled for demanding games.
+
+### ✅ MSX 1/2 - BlueMSX (`roms/msx`)
+- Significant performance enhancements.
+- Many more games now run at full speed.
+- Frameskip supported.
+
+### ✅ Commodore 64 - Frodo (`roms/c64f`)
+- Major speed improvements.
+- Frameskip support.
+- Overscan (border) cropping option available.
+
+### ✅ Quake Port - TyrQuake (`roms/tyrquake`)
+- Optimized performance makes the game somewhat playable.
+- Improved framerate and responsiveness.
+
+### ⚠️ NES - Nestopia (`roms/nest`)
+- Increased compatibility for rare games and demos.
+- Frameskip supported.
+- Slower than QuickNES – recommended only when needed for specific titles.
+
+---
 
 ## Cores in this release
 Highlighted cores are updated/recommended for the device.
@@ -161,7 +213,7 @@ All of the cores are independent.
 All the latest information can be found in the [dev channel on Discord](https://discord.com/channels/741895796315914271/1099465777825972347) which is part of [Retro Handhelds](https://discord.gg/retrohandhelds).
 
 ## Notes
-This repo was forked from the official repo in github that kobil maintains at https://gitlab.com/kobily/sf2000_multicore
+This repo was forked from the official repo in github that kobil maintains at https://gitlab.com/kobily/sf2000_multicore  
 I will try to keep things here in sync.
 
 Here are some useful notes on dealing with submodules: <https://www.vogella.com/tutorials/GitSubmodules/article.html>
