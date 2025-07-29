@@ -88,9 +88,9 @@
 # echo "-- dblcherryGB make --"
 # make clean CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB
 # make CONSOLE=dblcherrygb  CORE=cores/libretro-doublecherryGB
-echo "-- gb make --"
-make clean CONSOLE=gb  CORE=cores/libretro-gambatte
-make CONSOLE=gb        CORE=cores/libretro-gambatte
+# echo "-- gb make --"
+# make clean CONSOLE=gb  CORE=cores/libretro-gambatte
+# make CONSOLE=gb        CORE=cores/libretro-gambatte
 # echo "-- gbgb make --"
 # make clean CONSOLE=gbgb       CORE=cores/Gearboy/platforms/libretro
 # make CONSOLE=gbgb       CORE=cores/Gearboy/platforms/libretro
@@ -109,9 +109,9 @@ make CONSOLE=gb        CORE=cores/libretro-gambatte
 # echo "-- snes02 make --"
 # make clean CONSOLE=snes02     CORE=cores/snes9x2002
 # make CONSOLE=snes02     CORE=cores/snes9x2002
-# echo "-- snes make --"
-# make clean CONSOLE=snes       CORE=cores/snes9x2005
-# make CONSOLE=snes       CORE=cores/snes9x2005
+echo "-- snes make --"
+make clean CONSOLE=snes       CORE=cores/snes9x2005
+make CONSOLE=snes       CORE=cores/snes9x2005
 # echo "-- sega make --"
 # make clean CONSOLE=sega       CORE=cores/picodrive MAKEFILE=-fMakefile.libretro
 # make CONSOLE=sega       CORE=cores/picodrive MAKEFILE=-fMakefile.libretro
@@ -160,8 +160,8 @@ make CONSOLE=gb        CORE=cores/libretro-gambatte
 # echo "-- c64 make --"
 # make clean CONSOLE=c64     CORE=cores/libretro-vice EMUTYPE=x64
 # echo "-- c64f make --"
-make clean CONSOLE=c64f  CORE=cores/libretro-frodo EMUTYPE=frodo
-make CONSOLE=c64f  CORE=cores/libretro-frodo platform=sf2000 EMUTYPE=frodo
+# make clean CONSOLE=c64f  CORE=cores/libretro-frodo EMUTYPE=frodo
+# make CONSOLE=c64f  CORE=cores/libretro-frodo platform=sf2000 EMUTYPE=frodo
 # echo "-- c64f make --"
 # make clean CONSOLE=c64f        CORE=cores/libretro-frodo EMUTYPE=frodo
 # make CONSOLE=c64f        CORE=cores/libretro-frodo platform=sf2000 EMUTYPE=frodo
@@ -251,8 +251,14 @@ make CONSOLE=c64f  CORE=cores/libretro-frodo platform=sf2000 EMUTYPE=frodo
 #make CONSOLE=tennis     CORE=cores/retro-tennis
 #
 
-make clean CONSOLE=js2000        CORE=cores/js2000
-make CONSOLE=js2000        CORE=cores/js2000 && \
+# make clean CONSOLE=js2000        CORE=cores/js2000
+# make CONSOLE=js2000        CORE=cores/js2000 && \
 
 # make updatelogo ALPHARELEASE=0.10
+
+# PCSX4ALL LibRetro core for SF2000
+# echo "-- pcsx4all make --"
+# make clean CONSOLE=pcsx4all CORE=cores/RG350_pcsx4all MAKEFILE=-fMakefile.libretro
+# make CONSOLE=pcsx4all CORE=cores/RG350_pcsx4all MAKEFILE=-fMakefile.libretro
+
 true

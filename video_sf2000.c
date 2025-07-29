@@ -241,7 +241,16 @@ static enum tvsystem get_cur_tvsys(void)
 	return tvsys;
 }
 
-static uint16_t cur_width = MENU_WIDTH, cur_height = MENU_HEIGHT, *rot_buf;
+static uint16_t cur_width = 0, cur_height = 0, *rot_buf;
+static uint32_t last_recreate_time = 0;
+static bool state_loading = false;
+
+void set_state_loading(bool loading) {
+	state_loading = loading;
+	if (loading) {
+		xlog("Video: Ignoring dimension changes during state loading\n");
+	}
+}
 
 static void hooked_run_osd_region_write(const void *buf,
 	uint16_t width, uint16_t height, uint16_t pixel_pitch)
@@ -266,9 +275,26 @@ static void hooked_run_osd_region_write(const void *buf,
 		width = pixel_pitch; // in rot_buf only
 	}
 	if (cur_width != width || cur_height != height) {
-		cur_width = width;
-		cur_height = height;
-		recreate_region(get_cur_tvsys(), width, height);
+		// Ignore dimension changes during state loading to prevent FPS issues
+		if (state_loading) {
+			xlog("Video: Ignoring dimension change %ux%u -> %ux%u during state loading\n", 
+			     cur_width, cur_height, width, height);
+			return; // Keep current dimensions, skip recreation
+		}
+		
+		uint32_t current_time = os_get_tick_count();
+		// Debounce region recreation to prevent excessive calls that cause FPS degradation
+		if (current_time - last_recreate_time > 100) {  // Only recreate if >100ms since last
+			xlog("Video dimension change: %ux%u -> %ux%u\n", cur_width, cur_height, width, height);
+			cur_width = width;
+			cur_height = height;
+			recreate_region(get_cur_tvsys(), width, height);
+			last_recreate_time = current_time;
+		} else {
+			// Update dimensions but skip expensive recreation
+			cur_width = width;
+			cur_height = height;
+		}
 	}
 	region_write(buf, width, height, pixel_pitch);
 }

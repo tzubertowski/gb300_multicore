@@ -7,7 +7,13 @@
       "Bash(chmod:*)",
       "Bash(make:*)",
       "Bash(./buildcoresworking.sh:*)",
-      "Bash(cmp:*)"
+      "Bash(cmp:*)",
+      "WebFetch(domain:git.maschath.de)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(/dev/null)"
     ],
     "deny": []
   }

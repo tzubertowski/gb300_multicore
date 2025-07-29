@@ -58,10 +58,18 @@ extern int g_errno;
 extern void (*__xlog)(const char *fmt, ...);
 // #define __xlog(...)
 
+// Global heap management
+static void *s_heap_end;
+static void *s_heap_ptr = NULL;
+
+void reset_heap()
+{
+	s_heap_ptr = NULL;  // Reset heap pointer to trigger reinitialization
+	xlog("Heap reset to prevent FPS degradation\n");
+}
+
 void *sbrk(ptrdiff_t incr)
 {
-	static void *s_heap_end;
-	static void *s_heap_ptr = NULL;
 	if (!s_heap_ptr)
 	{
 		s_heap_ptr = gp_buf_64m;	// use stock's 64MB scratch buffer
