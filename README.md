@@ -22,6 +22,12 @@ Several emulator cores have been significantly enhanced in this release to bette
 - Slow motion: `SELECT + L`
 - RTC (real-time clock) support – configurable via `js2000` configuration script.
 
+### ✅ SNES - Snes9X (`roms/snes`)
+- Vastly improved performance. SF2000/GB300 will likely never run SNES full speed, but with my modifications we have gotten pretty close! All games should be fully playable with frameskip of 1
+- Audio mute: `SELECT + L`
+- Transparency effect toggle: `SELECT + R`
+- Frameskip toggle: `SELECT + A`
+
 ### ✅ GB / GBC - Gambatte (`roms/gb`)
 - Major performance improvements.
 - Fast forward: `SELECT + A`
