@@ -106,12 +106,12 @@
 # echo "-- pokem make --"
 # make clean CONSOLE=pokem      CORE=cores/PokeMini
 # make CONSOLE=pokem      CORE=cores/PokeMini
-# echo "-- snes02 make --"
-# make clean CONSOLE=snes02     CORE=cores/snes9x2002
-# make CONSOLE=snes02     CORE=cores/snes9x2002
+echo "-- snes02 make --"
+make clean CONSOLE=snes02     CORE=cores/snes9x2002
+make CONSOLE=snes02     CORE=cores/snes9x2002
 echo "-- snes make --"
-make clean CONSOLE=snes       CORE=cores/snes9x2005
-make CONSOLE=snes       CORE=cores/snes9x2005
+make clean CONSOLE=snes       CORE=cores/snes9x2005 platform=sf2000
+make CONSOLE=snes       CORE=cores/snes9x2005 platform=sf2000
 # echo "-- sega make --"
 # make clean CONSOLE=sega       CORE=cores/picodrive MAKEFILE=-fMakefile.libretro
 # make CONSOLE=sega       CORE=cores/picodrive MAKEFILE=-fMakefile.libretro
