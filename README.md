@@ -78,6 +78,25 @@ Enhanced PICO-8 emulation now with full audio support.
 - Performance optimizations making many games fully playable (e.g., Celeste)
 - Enhanced compatibility across the PICO-8 game library
 
+### 💻 BlueMSX (MSX/MSX2/ColecoVision)
+Improved MSX emulation with better sound hardware support.
+
+**Improvements:**
+- Enhanced support for MSX games with advanced sound hardware
+- High-level audio emulation can be disabled for improved compatibility
+- Games like F-1 Spirit are now playable
+- Support for multiple MSX systems and ColecoVision
+
+### 🎮 FCEUmm (NES)
+Feature-rich NES emulation with extensive customization options.
+
+**Improvements:**
+- Performance optimizations for better gameplay
+- Extensive palette options for authentic visuals
+- Advanced sound configuration capabilities
+- Overscan adjustment for proper display
+- Support for Game Genie codes
+
 ## Cores in this release
 - amstradb (cap32)
 - m2k (mame2000)
