@@ -31,43 +31,51 @@ Enhanced Game Boy emulation with modern features and optimizations.
 
 **Improvements:**
 - Performance optimizations for smoother gameplay
-- Support for LCD ghosting emulation with proper transparency effects
-- Advanced hotkey support for enhanced control
+- Frame blending option in .opt file for LCD ghosting emulation
+- Nintendo Switch DMG palette as new default
+- Fast Forward & Slow Motion support
 
 **Hotkey Controls:**
-- Fast forward and slowdown controls via hotkeys
-- Real-time rewind functionality
+- **SEL + B**: Rewind gameplay
+- **SEL + ← (Left D-Pad)**: Slow-motion mode
 
 ### 🏃 GPSP (Game Boy Advance) 
 Significantly improved GBA emulation with better performance and control options.
 
 **Improvements:**
-- Massively improved performance in many titles
-- Fast forward and slowdown functionality via hotkeys
+- Performance optimizations for MIPS architecture
+- Most games now fully playable, including 3D titles
+- Massively improved performance for demanding games like Pokemon ROM hacks
+- Fast Forward & Slow Motion support
 - Enhanced compatibility and stability
 
 ### 🕹️ QuickNES (NESQ - Nintendo Entertainment System)
 Enhanced NES emulation with modern quality-of-life features.
 
 **Improvements:**
-- Fast forward and slowdown controls
-- Real-time rewind functionality for instant save states
+- Accurate NES emulation
+- Fast forward and rewind functionality
 - Performance optimizations
+
+**Hotkey Controls:**
+- **SEL + R**: Cycle fast forward speeds (Normal → 2x → 4x)
+- **SEL + L**: Rewind time
 
 ### 💾 Frodo (Commodore 64)
 Improved C64 emulation with better performance and display options.
 
 **Improvements:**
 - Performance optimizations for smoother emulation
-- Overscan crop functionality for better display
-- Frameskip support for performance tuning
+- Overscan cropping feature configurable via .opt file
+- Default frameskip of 1 to improve playability
 
 ### 🎵 Fake08 (PICO-8)
 Enhanced PICO-8 emulation now with full audio support.
 
 **Improvements:**
-- Audio support implementation
-- Performance optimizations making most games fully playable
+- Optimized for MIPS architecture
+- Improved game and audio compatibility
+- Performance optimizations making many games fully playable (e.g., Celeste)
 - Enhanced compatibility across the PICO-8 game library
 
 ## Cores in this release
