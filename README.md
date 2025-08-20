@@ -45,7 +45,7 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - nes (fceumm)
 - nesq (QuickNES)
 - pokem (PokeMini)
-- snes02 (snes9x2002)
+- snes02 (snes9x2002) - **🚀 NEW: Full hotkey support with visual notifications! Feature parity with SNES9X2005**
 - snes (snes9x2005)
 - sega (picodrive; megadrive)
 - gg (Gearsystem)
@@ -77,6 +77,20 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - quake (port)
 - dblcherrygb (doublecherryGB)
 - geolith
+
+## 🚀 SNES9X2002 (SNES02) – Feature Parity & Polish
+
+SNES02 gets a major upgrade with all the quality-of-life features from SNES9X2005! Now both SNES cores offer the same great user experience.
+
+### New Features:
+- **Full hotkey support** with the same intuitive controls as SNES9X2005
+- **Visual notification system** shows setting changes clearly on-screen
+- **Safe performance optimizations** applied from the SNES9X2005 development work
+
+### Hotkey Controls:
+- **SEL + A**: Frameskip cycling with visual feedback
+- **SEL + R**: Transparency toggle with notification
+- **SEL + L**: Audio toggle with status display
 
 ## About the platform
 More information about the GB300 handheld gaming system can be found [here](https://nummacway.github.io/gb300/).
