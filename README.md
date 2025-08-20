@@ -11,6 +11,65 @@ Please see the detailed [detailed How to setup GB300 guide](https://retromods.pl
 
 Multicore otherwise works the same as it does on SF2000, so you can reference the [source](https://github.com/madcock/sf2000_multicore).
 
+## Custom core improvements
+
+### 🚀 SNES9X2002 (SNES02) – Feature Parity & Polish
+SNES02 gets a major upgrade with all the quality-of-life features from SNES9X2005! Now both SNES cores offer the same great user experience.
+
+**New Features:**
+- Full hotkey support with the same intuitive controls as SNES9X2005
+- Visual notification system shows setting changes clearly on-screen
+- Safe performance optimizations applied from the SNES9X2005 development work
+
+**Hotkey Controls:**
+- **SEL + A**: Frameskip cycling with visual feedback
+- **SEL + R**: Transparency toggle with notification
+- **SEL + L**: Audio toggle with status display
+
+### 🎮 Gambatte (Game Boy/Game Boy Color)
+Enhanced Game Boy emulation with modern features and optimizations.
+
+**Improvements:**
+- Performance optimizations for smoother gameplay
+- Support for LCD ghosting emulation with proper transparency effects
+- Advanced hotkey support for enhanced control
+
+**Hotkey Controls:**
+- Fast forward and slowdown controls via hotkeys
+- Real-time rewind functionality
+
+### 🏃 GPSP (Game Boy Advance) 
+Significantly improved GBA emulation with better performance and control options.
+
+**Improvements:**
+- Massively improved performance in many titles
+- Fast forward and slowdown functionality via hotkeys
+- Enhanced compatibility and stability
+
+### 🕹️ QuickNES (NESQ - Nintendo Entertainment System)
+Enhanced NES emulation with modern quality-of-life features.
+
+**Improvements:**
+- Fast forward and slowdown controls
+- Real-time rewind functionality for instant save states
+- Performance optimizations
+
+### 💾 Frodo (Commodore 64)
+Improved C64 emulation with better performance and display options.
+
+**Improvements:**
+- Performance optimizations for smoother emulation
+- Overscan crop functionality for better display
+- Frameskip support for performance tuning
+
+### 🎵 Fake08 (PICO-8)
+Enhanced PICO-8 emulation now with full audio support.
+
+**Improvements:**
+- Audio support implementation
+- Performance optimizations making most games fully playable
+- Enhanced compatibility across the PICO-8 game library
+
 ## Cores in this release
 - amstradb (cap32)
 - m2k (mame2000)
@@ -45,7 +104,7 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - nes (fceumm)
 - nesq (QuickNES)
 - pokem (PokeMini)
-- snes02 (snes9x2002) - **🚀 NEW: Full hotkey support with visual notifications! Feature parity with SNES9X2005**
+- snes02 (snes9x2002)
 - snes (snes9x2005)
 - sega (picodrive; megadrive)
 - gg (Gearsystem)
@@ -77,20 +136,6 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - quake (port)
 - dblcherrygb (doublecherryGB)
 - geolith
-
-## 🚀 SNES9X2002 (SNES02) – Feature Parity & Polish
-
-SNES02 gets a major upgrade with all the quality-of-life features from SNES9X2005! Now both SNES cores offer the same great user experience.
-
-### New Features:
-- **Full hotkey support** with the same intuitive controls as SNES9X2005
-- **Visual notification system** shows setting changes clearly on-screen
-- **Safe performance optimizations** applied from the SNES9X2005 development work
-
-### Hotkey Controls:
-- **SEL + A**: Frameskip cycling with visual feedback
-- **SEL + R**: Transparency toggle with notification
-- **SEL + L**: Audio toggle with status display
 
 ## About the platform
 More information about the GB300 handheld gaming system can be found [here](https://nummacway.github.io/gb300/).
