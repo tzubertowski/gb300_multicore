@@ -13,7 +13,9 @@
       "Bash(find:*)",
       "Bash(git checkout:*)",
       "Bash(git add:*)",
-      "Bash(/dev/null)"
+      "Bash(/dev/null)",
+      "Bash(git stash:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }
