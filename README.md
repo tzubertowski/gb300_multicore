@@ -13,7 +13,10 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 
 ## Custom core improvements
 
-### 🚀 SNES9X2002 (SNES02) – Feature Parity & Polish
+### 🎮 [SNES9X2005](https://github.com/tzubertowski/snes9x2005) (SNES) – Enhanced SNES Emulation
+SNES9X2005 provides accurate and optimized SNES emulation with performance enhancements and quality-of-life features.
+
+### 🚀 [SNES9X2002](https://github.com/tzubertowski/snes9x2002) (SNES02) – Feature Parity & Polish
 SNES02 gets a major upgrade with all the quality-of-life features from SNES9X2005! Now both SNES cores offer the same great user experience.
 
 **New Features:**
@@ -26,7 +29,7 @@ SNES02 gets a major upgrade with all the quality-of-life features from SNES9X200
 - **SEL + R**: Transparency toggle with notification
 - **SEL + L**: Audio toggle with status display
 
-### 🎮 Gambatte (Game Boy/Game Boy Color)
+### 🎮 [Gambatte](https://github.com/tzubertowski/libretro-gambatte) (Game Boy/Game Boy Color)
 Enhanced Game Boy emulation with modern features and optimizations.
 
 **Improvements:**
@@ -39,7 +42,7 @@ Enhanced Game Boy emulation with modern features and optimizations.
 - **SEL + B**: Rewind gameplay
 - **SEL + ← (Left D-Pad)**: Slow-motion mode
 
-### 🏃 GPSP (Game Boy Advance) 
+### 🏃 [GPSP](https://github.com/tzubertowski/gpsp_multicore) (Game Boy Advance) 
 Significantly improved GBA emulation with better performance and control options.
 
 **Improvements:**
@@ -49,7 +52,7 @@ Significantly improved GBA emulation with better performance and control options
 - Fast Forward & Slow Motion support
 - Enhanced compatibility and stability
 
-### 🕹️ QuickNES (NESQ - Nintendo Entertainment System)
+### 🕹️ [QuickNES](https://github.com/tzubertowski/QuickNES_Core) (NESQ - Nintendo Entertainment System)
 Enhanced NES emulation with modern quality-of-life features.
 
 **Improvements:**
@@ -61,7 +64,7 @@ Enhanced NES emulation with modern quality-of-life features.
 - **SEL + R**: Cycle fast forward speeds (Normal → 2x → 4x)
 - **SEL + L**: Rewind time
 
-### 💾 Frodo (Commodore 64)
+### 💾 [Frodo](https://github.com/tzubertowski/libretro-frodo) (Commodore 64)
 Improved C64 emulation with better performance and display options.
 
 **Improvements:**
@@ -69,7 +72,7 @@ Improved C64 emulation with better performance and display options.
 - Overscan cropping feature configurable via .opt file
 - Default frameskip of 1 to improve playability
 
-### 🎵 Fake08 (PICO-8)
+### 🎵 [Fake08](https://github.com/tzubertowski/fake-08) (PICO-8)
 Enhanced PICO-8 emulation now with full audio support.
 
 **Improvements:**
@@ -78,7 +81,7 @@ Enhanced PICO-8 emulation now with full audio support.
 - Performance optimizations making many games fully playable (e.g., Celeste)
 - Enhanced compatibility across the PICO-8 game library
 
-### 💻 BlueMSX (MSX/MSX2/ColecoVision)
+### 💻 [BlueMSX](https://github.com/tzubertowski/libretro-blueMSX) (MSX/MSX2/ColecoVision)
 Improved MSX emulation with better sound hardware support.
 
 **Improvements:**
@@ -87,7 +90,7 @@ Improved MSX emulation with better sound hardware support.
 - Games like F-1 Spirit are now playable
 - Support for multiple MSX systems and ColecoVision
 
-### 🎮 FCEUmm (NES)
+### 🎮 [FCEUmm](https://github.com/tzubertowski/libretro-fceumm) (NES)
 Feature-rich NES emulation with extensive customization options.
 
 **Improvements:**
