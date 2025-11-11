@@ -13,6 +13,26 @@
 #include "stockfw.h"
 #include "video_sf2000.h"
 
+#define MIPS_J(pfunc)    (2 << 26) | (uint32_t)pfunc >> 2 & ((1 << 26) - 1)
+#define MIPS_JAL(pfunc)  (3 << 26) | (uint32_t)pfunc >> 2 & ((1 << 26) - 1)
+
+#define PATCH_J(target, hook)    *(uint32_t*)(target) = MIPS_J(hook)
+#define PATCH_JAL(target, hook)  *(uint32_t*)(target) = MIPS_JAL(hook)
+
+// Patch pause menu to always return 1 (exiting to frontend) unless battery is low
+int dummy_run_emulator_menu(void) {
+	if (g_battery_level == -1) {
+		// Low battery
+		// Run the original pause menu during low battery to avoid a loop
+		unsigned int run_emulator_menu_response = run_emulator_menu();
+		return run_emulator_menu_response;
+	} else {
+		// Placeholder, start implementing our own save menu here
+		unsigned int run_emulator_menu_response = run_emulator_menu();
+		return run_emulator_menu_response;
+	}
+}
+
 // Hotkeys
 #define HOTKEYSAVESRM 0x9008 // press L + R + Start
 #define HOTKEYSAVESTATE 0x9400 // press L + R + X
@@ -419,6 +439,11 @@ struct retro_core_t *__core_entry__(void)
 	*(unsigned *)0x80049744 = *(unsigned *)0x80001270; // lui	$gp
 	*(unsigned *)0x80049748 = *(unsigned *)0x80001274; // addiu	$gp
 	__builtin___clear_cache((void *)0x80049744, (void *)0x8004974c);
+
+	// Patch Pause Menu
+	PATCH_JAL(0x8035cc84, dummy_run_emulator_menu);
+	__builtin___clear_cache((void *)0x8035cc84, (void *)0x8035cc84+4);
+
 	os_enable_interrupt();
 	clear_bss();
 
@@ -512,7 +537,7 @@ bool wrap_retro_load_game(const struct retro_game_info* info)
 
 		// load keymap
 		load_keymap(s_game_filepath);
-		
+
 		video_options(s_core_config);
 
 		// show FPS?

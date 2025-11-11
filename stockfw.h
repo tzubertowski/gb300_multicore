@@ -44,6 +44,7 @@ extern uint32_t os_get_tick_count(void);
 extern HANDLE dev_get_by_id(uint32_t, uint16_t);
 
 extern int run_emulator(int load_state);
+extern int run_emulator_menu(void);
 extern void run_gba(const char *filename, int load_state);
 
 extern void set_keymap(uint32_t *p_keymap, unsigned turbo_mask);
@@ -58,6 +59,8 @@ extern bool retro_environment_cb(unsigned cmd, void *data);
 
 struct retro_system_av_info;
 struct retro_game_info;
+
+extern int g_battery_level;
 
 extern unsigned RAMSIZE;
 
