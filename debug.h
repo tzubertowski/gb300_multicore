@@ -12,7 +12,7 @@ void lcd_send_data(unsigned short);
 void lcd_init();
 void lcd_bsod(const char *fmt, ...) __attribute__((noreturn));
 
-void dbg_show_noblock(unsigned short background_color, const char *fmt, ...);
+void dbg_show_noblock(unsigned short text_color, unsigned short background_color, const char *fmt, ...);
 
 void xlog_clear();
 void xlog(const char *fmt, ...);
