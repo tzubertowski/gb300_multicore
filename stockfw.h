@@ -46,6 +46,8 @@ extern HANDLE dev_get_by_id(uint32_t, uint16_t);
 extern int run_emulator(int load_state);
 extern void run_gba(const char *filename, int load_state);
 
+extern void set_keymap(uint32_t *p_keymap, unsigned turbo_mask);
+
 extern void retro_video_refresh_cb(const void *data, unsigned width, unsigned height, size_t pitch);
 extern size_t retro_audio_sample_batch_cb(const int16_t *data, size_t frames);
 extern void retro_input_poll_cb(void);
