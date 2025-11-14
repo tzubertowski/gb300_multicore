@@ -19,18 +19,23 @@
 #define PATCH_J(target, hook)    *(uint32_t*)(target) = MIPS_J(hook)
 #define PATCH_JAL(target, hook)  *(uint32_t*)(target) = MIPS_JAL(hook)
 
-// Patch pause menu to always return 1 (exiting to frontend) unless battery is low
+void save_srm(const char slot);
+void load_srm(const char slot);
+
+bool wrap_retro_load_game(const struct retro_game_info* info);
+void wrap_retro_unload_game(void);
+
+struct retro_game_info saved_game_info;
+
+// Patch pause menu to always return 0 
 int dummy_run_emulator_menu(void) {
-	if (g_battery_level == -1) {
-		// Low battery
-		// Run the original pause menu during low battery to avoid a loop
-		unsigned int run_emulator_menu_response = run_emulator_menu();
-		return run_emulator_menu_response;
-	} else {
-		// Placeholder, start implementing our own save menu here
-		unsigned int run_emulator_menu_response = run_emulator_menu();
-		return run_emulator_menu_response;
+	save_srm(0); // Save before loading the pause menu (incase of crashes + replace savesrm hotkey)
+	unsigned int run_emulator_menu_response = run_emulator_menu();
+	if (run_emulator_menu_response == 1) { // Replace quit button with reset core since quit button is broken when using the menu core
+		wrap_retro_unload_game();
+		wrap_retro_load_game(&saved_game_info);
 	}
+	return 0;
 }
 
 // Hotkeys
@@ -58,10 +63,8 @@ static bool wrap_environ_cb(unsigned cmd, void *data);
 static size_t mono_mix_audio_batch_cb(const int16_t *data, size_t frames);
 static void mono_mix_audio_sample_cb(int16_t left, int16_t right);
 
-static bool wrap_retro_load_game(const struct retro_game_info* info);
 static void wrap_retro_init(void);
 static void wrap_retro_deinit(void);
-static void wrap_retro_unload_game(void);
 static void wrap_retro_run(void);
 
 static void log_cb(enum retro_log_level level, const char *fmt, ...);
@@ -461,6 +464,8 @@ struct retro_core_t *__core_entry__(void)
 
 bool wrap_retro_load_game(const struct retro_game_info* info)
 {
+	memcpy(&saved_game_info, info, sizeof(struct retro_game_info)); // Save the retro_game_info incase we want to reset
+
 	bool ret;
 	struct retro_system_info sysinfo;
 	retro_get_system_info(&sysinfo);
