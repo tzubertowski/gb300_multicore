@@ -36,6 +36,7 @@ Multicore otherwise works the same as it does on SF2000, so you can reference th
 - int (FreeIntv)
 - msx (blueMSX)
 - gme
+- mp3 (froggyMP3) - [fork](https://github.com/tzubertowski/froggyMP3), [source](https://github.com/GrGadam/froggyMP3)
 - pce (beetle-pce)
 - ngpc (RACE)
 - gba (GPSP running with dynarec, working saves)

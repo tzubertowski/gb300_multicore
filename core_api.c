@@ -39,7 +39,7 @@ int dummy_run_emulator_menu(void) {
 }
 
 // Hotkeys
-#define HOTKEYSAVESRM 0x9008 // press L + R + Start
+#define HOTKEYSCREENSHOT 0x9008 // press L + R + Start
 #define HOTKEYSAVESTATE 0x9400 // press L + R + X
 #define HOTKEYLOADSTATE 0x9800 // press L + R + Y
 #define HOTKEYINCREASESTATE 0x9020 // press L + R + Right
@@ -48,7 +48,23 @@ int dummy_run_emulator_menu(void) {
 #define MAXPATH 	255
 #define SYSTEM_DIRECTORY	"/mnt/sda1/bios"
 #define SAVE_DIRECTORY		"/mnt/sda1/saves"
-#define CONFIG_DIRECTORY	"/mnt/sda1/configs"
+
+// Auto-detect config directory based on platform
+static const char* get_config_directory(void) {
+	static const char *config_dir = NULL;
+	if (!config_dir) {
+		// Check if GB300 config directory exists
+		if (fs_access("/mnt/sda1/cores/config", 0) == 0) {
+			config_dir = "/mnt/sda1/cores/config";
+		} else {
+			// Fall back to SF2000 structure
+			config_dir = "/mnt/sda1/configs";
+		}
+	}
+	return config_dir;
+}
+
+#define CONFIG_DIRECTORY get_config_directory()
 
 static config_file_t *s_core_config = NULL;
 static void config_load();
@@ -87,7 +103,7 @@ static void frameskip_cb(BOOL flag);
 static bool g_per_state_srm = false;
 static bool g_per_core_srm = false;
 static bool g_enable_savestate_hotkeys = true;
-static bool g_enable_save_srm_hotkey = true;
+static bool g_enable_screenshot_hotkey = true;
 static bool g_enable_osd = true;
 static bool g_osd_small_messages = false;
 
@@ -105,6 +121,34 @@ void build_game_config_filepath(char *filepath, size_t size, const char *game_fi
 void config_add_file(const char *filepath);
 
 static bool gb_temporary_osd = false;
+
+// BMP Header Structures
+#pragma pack(push, 1)
+typedef struct {
+    uint16_t bfType;
+    uint32_t bfSize;
+    uint16_t bfReserved1;
+    uint16_t bfReserved2;
+    uint32_t bfOffBits;
+} BMPHeader;
+
+typedef struct {
+    uint32_t biSize;
+    int32_t biWidth;
+    int32_t biHeight;
+    uint16_t biPlanes;
+    uint16_t biBitCount;
+    uint32_t biCompression;
+    uint32_t biSizeImage;
+    int32_t biXPelsPerMeter;
+    int32_t biYPelsPerMeter;
+    uint32_t biClrUsed;
+    uint32_t biClrImportant;
+} BMPInfoHeader;
+#pragma pack(pop)
+
+static int screenshot_counter = 1; // Counter for screenshot filenames
+static bool capture_screenshot = false;  // Capture screenshot flag
 
 struct retro_core_t core_exports = {
    .retro_init = wrap_retro_init,
@@ -154,17 +198,29 @@ void load_keymap(const char *s_game_filepath)
 	fill_pathname_base(basename, s_game_filepath, sizeof(basename));
 	path_remove_extension(basename);
 
-	// Rom keymap
-	snprintf(kmp_filepath, sizeof(kmp_filepath), "%s/%s/keymaps/%s.kmp", CONFIG_DIRECTORY, sysinfo.library_name, basename);
+	// Try GB300 structure: Rom keymap at /cores/config/{core}/{game}.kmp
+	snprintf(kmp_filepath, sizeof(kmp_filepath), "%s/%s/%s.kmp", CONFIG_DIRECTORY, sysinfo.library_name, basename);
 	xlog("Checking keymap in %s...\n", kmp_filepath);
 
-	// if ROM keymap doesn't exist load Core keymap
+	// Try SF2000 structure: /configs/{core}/keymaps/{game}.kmp
+	if (fs_access(kmp_filepath, 0) != 0) {
+		snprintf(kmp_filepath, sizeof(kmp_filepath), "%s/%s/keymaps/%s.kmp", CONFIG_DIRECTORY, sysinfo.library_name, basename);
+		xlog("Checking keymap in %s...\n", kmp_filepath);
+	}
+
+	// Try GB300: Core keymap at /cores/config/{core}.kmp
+	if (fs_access(kmp_filepath, 0) != 0) {
+		snprintf(kmp_filepath, sizeof(kmp_filepath), "%s/%s.kmp", CONFIG_DIRECTORY, sysinfo.library_name);
+		xlog("Checking keymap in %s...\n", kmp_filepath);
+	}
+
+	// Try SF2000: /configs/{core}/{core}.kmp
 	if (fs_access(kmp_filepath, 0) != 0) {
 		snprintf(kmp_filepath, sizeof(kmp_filepath), "%s/%s/%s.kmp", CONFIG_DIRECTORY, sysinfo.library_name, sysinfo.library_name);
 		xlog("Checking keymap in %s...\n", kmp_filepath);
 	}
 
-	// if Core keymap doesn't exist load Multicore keymap
+	// Global multicore keymap (same for both)
 	if (fs_access(kmp_filepath, 0) != 0) {
 		snprintf(kmp_filepath, sizeof(kmp_filepath), "%s/multicore.kmp", CONFIG_DIRECTORY);
 		xlog("Checking keymap in %s...\n", kmp_filepath);
@@ -338,22 +394,22 @@ void wrap_retro_run(void) {
 	}
 
 	// Do not use retro_input_state_cb to avoid key remapping issues
-	if (g_joy_task_state == HOTKEYSAVESRM || g_joy_task_state == HOTKEYSAVESTATE || g_joy_task_state == HOTKEYLOADSTATE 
+	if (g_joy_task_state == HOTKEYSCREENSHOT || g_joy_task_state == HOTKEYSAVESTATE || g_joy_task_state == HOTKEYLOADSTATE 
 		|| g_joy_task_state == HOTKEYINCREASESTATE || g_joy_task_state == HOTKEYDECREASESTATE) {
 		g_joy_state = 0; //Reset g_joy_state to avoid button presses
-		if ((g_joy_task_state == HOTKEYSAVESRM || g_joy_task_state == HOTKEYSAVESTATE || g_joy_task_state == HOTKEYLOADSTATE)
+		if ((g_joy_task_state == HOTKEYSCREENSHOT || g_joy_task_state == HOTKEYSAVESTATE || g_joy_task_state == HOTKEYLOADSTATE)
     		&& (os_get_tick_count() - g_osd_time > 1000)) { // Use osd delay to prevent spamming hotkeys
-			if ((g_joy_task_state == HOTKEYSAVESRM) && (g_enable_save_srm_hotkey)) { // Save SRM Hotkey
-				save_srm(0);
-				g_osd_small_messages ? sprintf(osd_message, "S:SRM") : sprintf(osd_message, "Save: SRM");
+			if ((g_joy_task_state == HOTKEYSCREENSHOT) && (g_enable_screenshot_hotkey)) { // Save SRM Hotkey
+				capture_screenshot = true;
 			} else if ((g_joy_task_state == HOTKEYSAVESTATE) && (g_enable_savestate_hotkeys)) { // Save SRM state
 				state_save("");
 				g_osd_small_messages ? sprintf(osd_message, "S:%d", slot_state) : sprintf(osd_message, "Save: %d", slot_state);
+				show_osd_message(osd_message);
 			} else if ((g_joy_task_state == HOTKEYLOADSTATE) && (g_enable_savestate_hotkeys)) { // Load SRM state
 				state_load("");
 				g_osd_small_messages ? sprintf(osd_message, "L:%d", slot_state) : sprintf(osd_message, "Load: %d", slot_state);
+				show_osd_message(osd_message);
 			}
-			show_osd_message(osd_message);
 		}
 
 		if (((g_joy_task_state == HOTKEYINCREASESTATE || g_joy_task_state == HOTKEYDECREASESTATE)  // Increase or Decrease state
@@ -554,7 +610,7 @@ bool wrap_retro_load_game(const struct retro_game_info* info)
 
 		// Hotkey settings
 		config_get_bool(s_core_config, "sf2000_enable_savestate_hotkeys", &g_enable_savestate_hotkeys);
-		config_get_bool(s_core_config, "sf2000_enable_save_srm_hotkey", &g_enable_save_srm_hotkey);
+		config_get_bool(s_core_config, "sf2000_enable_screenshot_hotkey", &g_enable_screenshot_hotkey);
 		config_get_bool(s_core_config, "sf2000_enable_osd", &g_enable_osd);
 		config_get_bool(s_core_config, "sf2000_osd_small_messages", &g_osd_small_messages);
 
@@ -804,6 +860,11 @@ void build_game_config_filepath(char *filepath, size_t size, const char *game_fi
 	fill_pathname_base(basename, game_filepath, sizeof(basename));
 	path_remove_extension(basename);
 
+	// Try GB300 structure first: /cores/config/{core}/{game}.opt
+	snprintf(filepath, size, "%s/%s/%s.opt", CONFIG_DIRECTORY, library_name, basename);
+	if (fs_access(filepath, 0) == 0) return;
+
+	// Fall back to SF2000 structure: /configs/{core}/options/{game}.opt
 	snprintf(filepath, size, "%s/%s/options/%s.opt", CONFIG_DIRECTORY, library_name, basename);
 }
 
@@ -812,7 +873,14 @@ void build_core_config_filepath(char *filepath, size_t size)
 	struct retro_system_info sysinfo;
 	retro_get_system_info(&sysinfo);
 
-	snprintf(filepath, size, "%s/%s/%s.opt", CONFIG_DIRECTORY, sysinfo.library_name, sysinfo.library_name);
+	// Check if we're on GB300 (cores/config exists) or SF2000 (configs)
+	if (fs_access("/mnt/sda1/cores/config", 0) == 0) {
+		// GB300 structure: /cores/config/{core}.opt
+		snprintf(filepath, size, "%s/%s.opt", CONFIG_DIRECTORY, sysinfo.library_name);
+	} else {
+		// SF2000 structure: /configs/{core}/{core}.opt
+		snprintf(filepath, size, "%s/%s/%s.opt", CONFIG_DIRECTORY, sysinfo.library_name, sysinfo.library_name);
+	}
 }
 
 void config_add_file(const char *filepath)
@@ -826,7 +894,9 @@ void config_load()
 	s_core_config = config_file_new_alloc();
 
 	// load global multicore options
-	config_add_file(CONFIG_DIRECTORY "/multicore.opt");
+	char multicore_config[MAXPATH];
+	snprintf(multicore_config, sizeof(multicore_config), "%s/multicore.opt", CONFIG_DIRECTORY);
+	config_add_file(multicore_config);
 
 	char config_filepath[MAXPATH];
 	build_core_config_filepath(config_filepath, sizeof(config_filepath));
@@ -856,6 +926,7 @@ bool config_get_var(struct retro_variable *var)
 void wrap_retro_init(void)
 {
 	config_load();
+	retro_set_video_refresh(wrap_video_refresh_cb);
 	retro_init();
 }
 
@@ -934,7 +1005,6 @@ static void enable_xrgb8888_support()
 	xlog("created rgb565_convert_buffer=%p width=%u height=%u\n",
 		s_rgb565_convert_buffer, av_info.geometry.max_width, av_info.geometry.max_height);
 
-	//retro_set_video_refresh(xrgb8888_video_refresh_cb);
 	g_xrgb888 = true;
 }
 
@@ -959,53 +1029,122 @@ static void dummy_retro_run(void)
 
 static void fps_counter_enable(bool enable)
 {
-	if (enable)
-	{
-		*fw_fps_counter_enable = 1;
-		retro_set_video_refresh(wrap_video_refresh_cb);
-	}
-	else
-	{
-		*fw_fps_counter_enable = 0;
-		if (g_xrgb888)
-			retro_set_video_refresh(xrgb8888_video_refresh_cb);
-		else
-			retro_set_video_refresh(retro_video_refresh_cb);
-	}
+    *fw_fps_counter_enable = enable ? 1 : 0;
 }
 
 void wrap_video_refresh_cb(const void *data, unsigned width, unsigned height, size_t pitch)
 {
-	static uint32_t prev_msec = 0;
-	static int count_all = 0;
-	static int count_not_skipped = 0;
+	if (g_show_fps) {
+		static uint32_t prev_msec = 0;
+		static int count_all = 0;
+		static int count_not_skipped = 0;
 
-	uint32_t curr_msec = os_get_tick_count();
+		uint32_t curr_msec = os_get_tick_count();
 
-	++count_all;
-	if (data)
-		++count_not_skipped;
+		++count_all;
+		if (data)
+			++count_not_skipped;
 
-	if (curr_msec - prev_msec > 1000)
-	{
-		// im not sure that using floats math will calc the fps much more accurately
-		// float sec = ((curr_msec - prev_msec) / 1000.0f);
-		// *fw_fps_counter1 = count_not_skipped / sec;
-		// fps_counter2 = count_all / sec;
+		if (curr_msec - prev_msec > 1000)
+		{
+			// im not sure that using floats math will calc the fps much more accurately
+			// float sec = ((curr_msec - prev_msec) / 1000.0f);
+			// *fw_fps_counter1 = count_not_skipped / sec;
+			// fps_counter2 = count_all / sec;
 
-		sprintf(fw_fps_counter_format, "%2d/%2d", count_not_skipped, count_all);
+			sprintf(fw_fps_counter_format, "%2d/%2d", count_not_skipped, count_all);
 
-		prev_msec = curr_msec;
-		count_all = 0;
-		count_not_skipped = 0;
+			prev_msec = curr_msec;
+			count_all = 0;
+			count_not_skipped = 0;
+		}
 	}
 
-	if (g_xrgb888)
-	{
+    if (capture_screenshot && data) {
+        unsigned char* framebuffer = (unsigned char*)data;
+        unsigned char* img_data = (unsigned char*)malloc(width * height * 3);
+
+        if (g_xrgb888) {
+            // If it's XRGB8888 format (32-bit per pixel), we need to extract R, G, B components
+            for (unsigned i = 0; i < width * height; i++) {
+                uint32_t color = ((uint32_t*)data)[i];
+
+                // Extract RGB components
+                uint8_t r = (color >> 16) & 0xFF;
+                uint8_t g = (color >> 8) & 0xFF;
+                uint8_t b = color & 0xFF;
+
+                // Store in img_data (24-bit color, RGB order)
+                img_data[i * 3 + 0] = b;
+                img_data[i * 3 + 1] = g;
+                img_data[i * 3 + 2] = r;
+            }
+        } else {
+            // If it's RGB565 format, convert to RGB888 (24-bit)
+            for (unsigned i = 0; i < width * height; i++) {
+                uint16_t color = ((uint16_t*)data)[i];
+
+                // Extract RGB565 components
+                uint8_t r = (color >> 11) & 0x1F;
+                uint8_t g = (color >> 5) & 0x3F;
+                uint8_t b = color & 0x1F;
+
+                // Convert to 8-bit RGB (scale 5-bit to 8-bit)
+                r = (r << 3) | (r >> 2);
+                g = (g << 2) | (g >> 4);
+                b = (b << 3) | (b >> 2);
+
+                // Store in img_data (24-bit color, RGB order)
+                img_data[i * 3 + 0] = b;  
+                img_data[i * 3 + 1] = g;  
+                img_data[i * 3 + 2] = r; 
+            }
+        }
+
+        // BMP Header setup
+        BMPHeader bmp_header = {0};
+        BMPInfoHeader bmp_info_header = {0};
+
+        bmp_header.bfType = 0x4D42;  // 'BM' in little-endian
+        bmp_header.bfOffBits = sizeof(BMPHeader) + sizeof(BMPInfoHeader);
+        bmp_header.bfSize = bmp_header.bfOffBits + width * height * 3;
+
+        bmp_info_header.biSize = sizeof(BMPInfoHeader);
+        bmp_info_header.biWidth = width;
+        bmp_info_header.biHeight = -height;  // Negative height to indicate top-down BMP
+        bmp_info_header.biPlanes = 1;
+        bmp_info_header.biBitCount = 24;  // 24 bits per pixel (RGB)
+        bmp_info_header.biSizeImage = width * height * 3;
+
+        char filename[MAXPATH];
+		char basename[MAXPATH];
+		fill_pathname_base(basename, s_game_filepath, sizeof(basename));
+		path_remove_extension(basename);
+        sprintf(filename, "/mnt/sda1/%s_screenshot_%d.bmp", basename, screenshot_counter);
+
+        FILE *bmp_file = fopen(filename, "wb");
+        if (bmp_file) {
+            // Write BMP header and info header
+            fwrite(&bmp_header, sizeof(BMPHeader), 1, bmp_file);
+            fwrite(&bmp_info_header, sizeof(BMPInfoHeader), 1, bmp_file);
+
+            fwrite(img_data, 1, width * height * 3, bmp_file);
+
+            fclose(bmp_file);
+            xlog("Screenshot saved to %s\n", filename);
+			g_osd_small_messages ? sprintf(osd_message, "Saved") : sprintf(osd_message, "Screenshot Saved");
+			show_osd_message(osd_message);
+        } else xlog("Failed to save screenshot\n");
+
+        free(img_data);
+        screenshot_counter++;
+        capture_screenshot = false;
+    }
+
+	if (g_xrgb888) {
 		convert_xrgb8888_to_rgb565((void*)data, width, height, pitch);
 		retro_video_refresh_cb(s_rgb565_convert_buffer, width, height, width * 2);		// each pixel is now 16bit, so pass the pitch as width*2
-	}
-	else {
+	} else {
 		retro_video_refresh_cb(data, width, height, pitch);
 	}
 }
